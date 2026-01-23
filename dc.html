@@ -9,8 +9,6 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         /* DeadZone Chronicles Specific Styles */
@@ -20,12 +18,22 @@
             --dc-black: #000000;
             --dc-dark: #0a0a0a;
             --dc-gray: #1a1a1a;
+            --dc-border: rgba(220, 38, 38, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body.dc-page {
             background: var(--dc-black);
             color: #ffffff;
             font-family: 'Rajdhani', sans-serif;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            overflow-x: hidden;
         }
 
         body.dc-page h1, 
@@ -35,106 +43,25 @@
         body.dc-page h5, 
         body.dc-page h6 {
             font-family: 'Orbitron', sans-serif;
-        }
-
-        .dc-hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-            background: linear-gradient(135deg, rgba(220, 38, 38, 0.1) 0%, rgba(0, 0, 0, 1) 100%);
-            padding: 8rem 2rem 4rem;
-        }
-
-        .dc-hero-background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            z-index: 0;
-            opacity: 0.3;
-        }
-
-        .dc-logo-container {
-            text-align: center;
-            position: relative;
-            z-index: 1;
-            margin-bottom: 3rem;
-        }
-
-        .dc-logo {
-            max-width: 400px;
-            width: 100%;
-            height: auto;
-            filter: drop-shadow(0 0 30px rgba(220, 38, 38, 0.6));
-            animation: logoGlow 3s ease-in-out infinite;
-        }
-
-        @keyframes logoGlow {
-            0%, 100% {
-                filter: drop-shadow(0 0 30px rgba(220, 38, 38, 0.6));
-            }
-            50% {
-                filter: drop-shadow(0 0 50px rgba(220, 38, 38, 0.9));
-            }
-        }
-
-        .dc-title {
-            font-size: clamp(2.5rem, 6vw, 4rem);
-            font-weight: 900;
-            margin: 2rem 0 1rem;
-            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .dc-subtitle {
-            font-size: 1.5rem;
-            color: #a1a1aa;
-            margin-bottom: 3rem;
-        }
-
-        .dc-countdown {
-            background: rgba(26, 26, 26, 0.8);
-            border: 2px solid rgba(220, 38, 38, 0.3);
-            border-radius: 20px;
-            padding: 2rem;
-            margin: 2rem auto;
-            max-width: 600px;
-            text-align: center;
-        }
-
-        .dc-countdown-label {
-            font-size: 1.25rem;
-            color: #a1a1aa;
-            margin-bottom: 1rem;
+            font-weight: 700;
+            letter-spacing: 3px;
             text-transform: uppercase;
-            letter-spacing: 2px;
         }
 
-        .dc-countdown-time {
-            font-size: 3rem;
-            font-weight: 800;
-            color: #dc2626;
-            text-shadow: 0 0 20px rgba(220, 38, 38, 0.5);
-        }
-
+        /* Navigation */
         .dc-nav {
             background: rgba(0, 0, 0, 0.95);
             backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(220, 38, 38, 0.3);
-            padding: 1rem 0;
+            border-bottom: 1px solid var(--dc-border);
+            padding: 1.25rem 0;
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
         }
 
         .dc-nav-container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 0 2rem;
             display: flex;
@@ -142,53 +69,18 @@
             align-items: center;
         }
 
-        .dc-nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .dc-nav-link {
-            color: #a1a1aa;
-            text-decoration: none;
-            font-weight: 600;
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .dc-nav-link:hover,
-        .dc-nav-link.active {
-            color: #dc2626;
-            background: rgba(220, 38, 38, 0.1);
-        }
-
-        .dc-nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0;
-            height: 2px;
-            background: #dc2626;
-            transition: width 0.3s ease;
-        }
-
-        .dc-nav-link.active::after,
-        .dc-nav-link:hover::after {
-            width: 80%;
-        }
-
         .dc-back-link {
+            font-family: 'Orbitron', sans-serif;
             color: #dc2626;
             text-decoration: none;
             font-weight: 600;
+            letter-spacing: 1.5px;
             display: flex;
             align-items: center;
             gap: 0.5rem;
             transition: all 0.3s ease;
+            font-size: 0.875rem;
+            text-transform: uppercase;
         }
 
         .dc-back-link:hover {
@@ -196,10 +88,190 @@
             transform: translateX(-5px);
         }
 
-        .dc-content {
+        .dc-nav-links {
+            display: flex;
+            gap: 0.5rem;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        .dc-nav-link {
+            font-family: 'Orbitron', sans-serif;
+            color: #a1a1aa;
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            position: relative;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            border: 1px solid transparent;
+        }
+
+        .dc-nav-link:hover,
+        .dc-nav-link.active {
+            color: #dc2626;
+            background: rgba(220, 38, 38, 0.1);
+            border-color: var(--dc-border);
+        }
+
+        /* Hero Section */
+        .dc-hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(220, 38, 38, 0.05) 0%, rgba(0, 0, 0, 1) 50%, rgba(153, 27, 27, 0.05) 100%);
+            padding: 8rem 2rem 4rem;
+        }
+
+        .dc-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(220, 38, 38, 0.1) 0%, transparent 70%);
+            z-index: 0;
+        }
+
+        .dc-hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
             max-width: 1200px;
+            width: 100%;
+        }
+
+        .dc-logo-container {
+            margin-bottom: 2rem;
+        }
+
+        .dc-logo {
+            max-width: 350px;
+            width: 100%;
+            height: auto;
+            filter: drop-shadow(0 0 40px rgba(220, 38, 38, 0.7));
+            animation: logoGlow 3s ease-in-out infinite;
             margin: 0 auto;
-            padding: 4rem 2rem;
+            display: block;
+        }
+
+        @keyframes logoGlow {
+            0%, 100% {
+                filter: drop-shadow(0 0 40px rgba(220, 38, 38, 0.7));
+            }
+            50% {
+                filter: drop-shadow(0 0 60px rgba(220, 38, 38, 1));
+            }
+        }
+
+        .dc-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 900;
+            margin: 2rem 0 1rem;
+            background: linear-gradient(135deg, #dc2626 0%, #ef4444 50%, #991b1b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            text-shadow: 0 0 40px rgba(220, 38, 38, 0.5);
+        }
+
+        .dc-subtitle {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.5rem;
+            color: #a1a1aa;
+            margin-bottom: 3rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+        }
+
+        .dc-hero-actions {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .dc-countdown {
+            background: rgba(26, 26, 26, 0.9);
+            border: 2px solid var(--dc-border);
+            border-radius: 20px;
+            padding: 2rem;
+            width: 100%;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 40px rgba(220, 38, 38, 0.2);
+        }
+
+        .dc-countdown-label {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+            color: #a1a1aa;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 600;
+        }
+
+        .dc-countdown-time {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            font-weight: 900;
+            color: #dc2626;
+            text-shadow: 0 0 30px rgba(220, 38, 38, 0.6);
+            letter-spacing: 4px;
+        }
+
+        .dc-discord-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            background: linear-gradient(135deg, #5865F2 0%, #4752C4 100%);
+            color: #ffffff;
+            padding: 1.25rem 2.5rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 1.125rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 10px 30px rgba(88, 101, 242, 0.3);
+            border: 2px solid rgba(88, 101, 242, 0.3);
+        }
+
+        .dc-discord-btn:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(88, 101, 242, 0.5);
+            background: linear-gradient(135deg, #4752C4 0%, #5865F2 100%);
+        }
+
+        .dc-discord-icon {
+            width: 28px;
+            height: 28px;
+            fill: currentColor;
+        }
+
+        /* Content Sections */
+        .dc-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 6rem 2rem;
         }
 
         .dc-tab-content {
@@ -223,40 +295,185 @@
         }
 
         .dc-section-title {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 2rem;
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 900;
+            margin-bottom: 3rem;
             color: #ffffff;
             text-align: center;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
+        .dc-section-description {
+            font-family: 'Rajdhani', sans-serif;
+            text-align: center;
+            font-size: 1.125rem;
+            color: #a1a1aa;
+            max-width: 900px;
+            margin: 0 auto 4rem;
+            line-height: 1.8;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        /* Panels */
+        .dc-panel {
+            background: rgba(26, 26, 26, 0.8);
+            border: 1px solid var(--dc-border);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .dc-panel:hover {
+            transform: translateY(-5px);
+            border-color: #dc2626;
+            box-shadow: 0 15px 40px rgba(220, 38, 38, 0.2);
+        }
+
+        /* Grid Layouts */
         .dc-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
             margin-top: 2rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .dc-card {
-            background: rgba(26, 26, 26, 0.8);
-            border: 1px solid rgba(220, 38, 38, 0.3);
+            background: rgba(26, 26, 26, 0.6);
+            border: 1px solid var(--dc-border);
             border-radius: 16px;
             padding: 2rem;
             transition: all 0.3s ease;
+            text-align: center;
         }
 
         .dc-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
             border-color: #dc2626;
             box-shadow: 0 10px 30px rgba(220, 38, 38, 0.2);
+            background: rgba(26, 26, 26, 0.9);
         }
 
+        /* Core Pillars */
+        .dc-pillars {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.5rem;
+            max-width: 1100px;
+            margin: 3rem auto;
+        }
+
+        .dc-pillar {
+            text-align: center;
+            padding: 2.5rem 1.5rem;
+            background: rgba(26, 26, 26, 0.6);
+            border: 2px solid var(--dc-border);
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .dc-pillar:hover {
+            transform: translateY(-8px) scale(1.05);
+            border-color: #dc2626;
+            box-shadow: 0 15px 40px rgba(220, 38, 38, 0.3);
+            background: rgba(26, 26, 26, 0.9);
+        }
+
+        .dc-pillar-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .dc-pillar-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #dc2626;
+            margin-bottom: 0.75rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .dc-pillar-desc {
+            font-family: 'Rajdhani', sans-serif;
+            color: #a1a1aa;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        /* Features */
+        .dc-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .dc-feature {
+            text-align: center;
+            padding: 2rem 1.5rem;
+            background: rgba(26, 26, 26, 0.6);
+            border-radius: 16px;
+            border: 1px solid var(--dc-border);
+            transition: all 0.3s ease;
+        }
+
+        .dc-feature:hover {
+            transform: translateY(-5px);
+            border-color: #dc2626;
+            background: rgba(26, 26, 26, 0.9);
+        }
+
+        .dc-feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .dc-feature-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #dc2626;
+            margin-bottom: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .dc-feature-desc {
+            font-family: 'Rajdhani', sans-serif;
+            color: #a1a1aa;
+            font-size: 0.9375rem;
+            font-weight: 500;
+            line-height: 1.6;
+        }
+
+        /* Gallery */
         .dc-gallery-item {
             aspect-ratio: 16/9;
             background: var(--dc-gray);
             border-radius: 12px;
             overflow: hidden;
             position: relative;
+            border: 1px solid var(--dc-border);
         }
 
         .dc-gallery-placeholder {
@@ -266,139 +483,177 @@
             align-items: center;
             justify-content: center;
             color: #dc2626;
-            font-size: 3rem;
+            font-size: 4rem;
+            background: rgba(26, 26, 26, 0.5);
         }
 
+        /* Team */
         .dc-team-member {
             text-align: center;
         }
 
         .dc-team-avatar {
-            width: 120px;
-            height: 120px;
+            width: 140px;
+            height: 140px;
             border-radius: 50%;
             background: rgba(220, 38, 38, 0.2);
-            margin: 0 auto 1rem;
+            margin: 0 auto 1.5rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 3px solid rgba(220, 38, 38, 0.5);
-            font-size: 3rem;
+            border: 4px solid rgba(220, 38, 38, 0.5);
+            font-size: 3.5rem;
             color: #dc2626;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .dc-card:hover .dc-team-avatar {
+            transform: scale(1.1);
+            border-color: #dc2626;
+            box-shadow: 0 0 30px rgba(220, 38, 38, 0.5);
         }
 
         .dc-team-name {
-            font-size: 1.5rem;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.75rem;
             font-weight: 700;
             margin-bottom: 0.5rem;
             color: #ffffff;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
         .dc-team-role {
+            font-family: 'Orbitron', sans-serif;
             color: #dc2626;
             font-weight: 600;
             margin-bottom: 1rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-size: 1rem;
         }
 
         .dc-team-bio {
+            font-family: 'Rajdhani', sans-serif;
             color: #a1a1aa;
             line-height: 1.7;
+            font-weight: 500;
         }
 
+        /* Rules */
         .dc-rule-item {
-            padding: 1.5rem;
-            background: rgba(26, 26, 26, 0.5);
+            padding: 2rem;
+            background: rgba(26, 26, 26, 0.6);
             border-left: 4px solid #dc2626;
-            border-radius: 8px;
-            margin-bottom: 1rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
             transition: all 0.3s ease;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .dc-rule-item:hover {
-            background: rgba(26, 26, 26, 0.8);
-            transform: translateX(5px);
+            background: rgba(26, 26, 26, 0.9);
+            transform: translateX(8px);
+            border-left-width: 6px;
         }
 
         .dc-rule-title {
+            font-family: 'Orbitron', sans-serif;
             font-size: 1.25rem;
             font-weight: 700;
             color: #dc2626;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
         .dc-rule-description {
+            font-family: 'Rajdhani', sans-serif;
             color: #a1a1aa;
-            line-height: 1.7;
+            line-height: 1.8;
+            font-weight: 500;
         }
 
-        .dc-discord-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            background: linear-gradient(135deg, #5865F2 0%, #4752C4 100%);
-            color: #ffffff;
-            padding: 1rem 2rem;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.125rem;
-            transition: all 0.3s ease;
-            margin: 2rem auto;
-            display: block;
+        /* Feature Sections */
+        .dc-feature-section {
+            margin-bottom: 4rem;
+        }
+
+        .dc-feature-section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
             text-align: center;
-            max-width: 300px;
-        }
-
-        .dc-discord-btn:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 10px 30px rgba(88, 101, 242, 0.4);
-        }
-
-        .dc-features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .dc-feature {
-            text-align: center;
-            padding: 1.5rem;
-            background: rgba(26, 26, 26, 0.5);
-            border-radius: 12px;
-            border: 1px solid rgba(220, 38, 38, 0.2);
-        }
-
-        .dc-feature-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .dc-feature-title {
-            font-size: 1.25rem;
-            font-weight: 700;
             color: #dc2626;
-            margin-bottom: 0.5rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
         }
 
-        .dc-feature-desc {
-            color: #a1a1aa;
-            font-size: 0.9375rem;
+        .dc-status-badge {
+            display: inline-block;
+            padding: 0.5rem 1.25rem;
+            border-radius: 20px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
         }
 
-        @media (max-width: 768px) {
-            .dc-nav-links {
-                flex-wrap: wrap;
+        .dc-status-available {
+            background: rgba(34, 197, 94, 0.2);
+            border: 1px solid rgba(34, 197, 94, 0.5);
+            color: #22c55e;
+        }
+
+        .dc-status-development {
+            background: rgba(251, 191, 36, 0.2);
+            border: 1px solid rgba(251, 191, 36, 0.5);
+            color: #fbbf24;
+        }
+
+        .dc-status-coming {
+            background: rgba(220, 38, 38, 0.2);
+            border: 1px solid rgba(220, 38, 38, 0.5);
+            color: #dc2626;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .dc-nav-container {
+                flex-direction: column;
                 gap: 1rem;
             }
 
+            .dc-nav-links {
+                justify-content: center;
+            }
+
             .dc-nav-link {
-                font-size: 0.875rem;
-                padding: 0.4rem 0.75rem;
+                padding: 0.5rem 1rem;
+                font-size: 0.75rem;
+            }
+
+            .dc-content {
+                padding: 4rem 1.5rem;
+            }
+
+            .dc-panel {
+                padding: 2rem;
             }
 
             .dc-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .dc-pillars {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             }
 
             .dc-logo {
@@ -407,6 +662,28 @@
 
             .dc-countdown-time {
                 font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .dc-hero {
+                padding: 6rem 1rem 3rem;
+            }
+
+            .dc-title {
+                font-size: 2rem;
+            }
+
+            .dc-subtitle {
+                font-size: 1.125rem;
+            }
+
+            .dc-pillars {
+                grid-template-columns: 1fr;
+            }
+
+            .dc-pillar {
+                padding: 2rem 1rem;
             }
         }
     </style>
@@ -433,23 +710,26 @@
 
     <!-- Hero Section -->
     <section class="dc-hero">
-        <div class="dc-hero-background"></div>
-        <div class="dc-logo-container">
-            <img src="dclogo.png" alt="DeadZone Chronicles" class="dc-logo">
+        <div class="dc-hero-content">
+            <div class="dc-logo-container">
+                <img src="dclogo.png" alt="DeadZone Chronicles" class="dc-logo">
+            </div>
             <h1 class="dc-title">DeadZone Chronicles</h1>
             <p class="dc-subtitle">Zombie Apocalypse Full PvP Server</p>
             
-            <div class="dc-countdown">
-                <div class="dc-countdown-label">Release Date</div>
-                <div class="dc-countdown-time" id="countdown">TBD</div>
-            </div>
+            <div class="dc-hero-actions">
+                <div class="dc-countdown">
+                    <div class="dc-countdown-label">Release Date</div>
+                    <div class="dc-countdown-time" id="countdown">TBD</div>
+                </div>
 
-            <a href="https://discord.gg/fF7wU3f6fN" target="_blank" rel="noopener noreferrer" class="dc-discord-btn">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928-1.793 6.4-2.22 8.431-2.3a.077.077 0 0 1 .063.028c1.669.12 3.503.507 8.431 2.3a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.128 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
-                </svg>
-                Join Discord
-            </a>
+                <a href="https://discord.gg/fF7wU3f6fN" target="_blank" rel="noopener noreferrer" class="dc-discord-btn">
+                    <svg class="dc-discord-icon" viewBox="0 0 71 55" fill="currentColor">
+                        <path d="M60.104 4.897c-6.077-2.773-12.594-4.897-19.104-6.497v-.001c-.881-.198-1.804-.198-2.685 0v.001c-6.51 1.6-13.027 3.724-19.104 6.497C5.175 17.236 0 31.5 0 46.55c6.303 7.184 15.464 12.893 25.908 16.23 2.088-2.838 3.948-5.838 5.592-8.995-3.104-.91-6.07-2.002-8.877-3.256.749-.576 1.478-1.168 2.186-1.775 17.486 8.778 36.501 8.778 53.987 0 .708.607 1.437 1.199 2.186 1.775-2.807 1.254-5.773 2.346-8.877 3.256 1.644 3.157 3.504 6.157 5.592 8.995C55.536 59.443 64.697 53.734 71 46.55c0-15.05-5.175-29.314-10.896-41.653zM23.725 38.924c-4.107 0-7.444-3.779-7.444-8.443 0-4.663 3.269-8.443 7.444-8.443 4.178 0 7.444 3.78 7.444 8.443 0 4.664-3.266 8.443-7.444 8.443zm23.55 0c-4.107 0-7.444-3.779-7.444-8.443 0-4.663 3.269-8.443 7.444-8.443 4.178 0 7.444 3.78 7.444 8.443 0 4.664-3.266 8.443-7.444 8.443z"/>
+                    </svg>
+                    Join Discord Server
+                </a>
+            </div>
         </div>
     </section>
 
@@ -458,74 +738,74 @@
         <!-- Overview Tab -->
         <div id="overview" class="dc-tab-content active">
             <h2 class="dc-section-title">Welcome to the DeadZone</h2>
-            <p style="text-align: center; font-size: 1.125rem; color: #a1a1aa; max-width: 800px; margin: 0 auto 3rem; line-height: 1.8;">
+            <p class="dc-section-description">
                 DeadZone Chronicles is an intense zombie apocalypse survival server where players must fight for survival 
                 in a post-apocalyptic world. Engage in Rust-like PvP combat, raid enemy bases, craft weapons and gear, 
                 loot the world, fight zombies, explore dungeons, and open mystery boxes. Only the strongest will survive.
             </p>
 
             <!-- Core Pillars -->
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; max-width: 1000px; margin: 3rem auto;">
-                <div style="text-align: center; padding: 2rem; background: rgba(26, 26, 26, 0.5); border: 2px solid rgba(220, 38, 38, 0.3); border-radius: 16px;">
-                    <div style="font-size: 3rem; margin-bottom: 1rem;">🔨</div>
-                    <div style="font-family: 'Orbitron', sans-serif; font-size: 1.5rem; font-weight: 700; color: #dc2626; margin-bottom: 0.5rem;">BUILD</div>
-                    <div style="color: #a1a1aa;">Construct and fortify your base</div>
+            <div class="dc-pillars">
+                <div class="dc-pillar">
+                    <span class="dc-pillar-icon">🔨</span>
+                    <div class="dc-pillar-title">BUILD</div>
+                    <div class="dc-pillar-desc">Construct and fortify your base</div>
                 </div>
-                <div style="text-align: center; padding: 2rem; background: rgba(26, 26, 26, 0.5); border: 2px solid rgba(220, 38, 38, 0.3); border-radius: 16px;">
-                    <div style="font-size: 3rem; margin-bottom: 1rem;">🎒</div>
-                    <div style="font-family: 'Orbitron', sans-serif; font-size: 1.5rem; font-weight: 700; color: #dc2626; margin-bottom: 0.5rem;">LOOT</div>
-                    <div style="color: #a1a1aa;">Scavenge the wasteland for resources</div>
+                <div class="dc-pillar">
+                    <span class="dc-pillar-icon">🎒</span>
+                    <div class="dc-pillar-title">LOOT</div>
+                    <div class="dc-pillar-desc">Scavenge the wasteland for resources</div>
                 </div>
-                <div style="text-align: center; padding: 2rem; background: rgba(26, 26, 26, 0.5); border: 2px solid rgba(220, 38, 38, 0.3); border-radius: 16px;">
-                    <div style="font-size: 3rem; margin-bottom: 1rem;">⚔️</div>
-                    <div style="font-family: 'Orbitron', sans-serif; font-size: 1.5rem; font-weight: 700; color: #dc2626; margin-bottom: 0.5rem;">FIGHT</div>
-                    <div style="color: #a1a1aa;">Battle zombies and players</div>
+                <div class="dc-pillar">
+                    <span class="dc-pillar-icon">⚔️</span>
+                    <div class="dc-pillar-title">FIGHT</div>
+                    <div class="dc-pillar-desc">Battle zombies and players</div>
                 </div>
-                <div style="text-align: center; padding: 2rem; background: rgba(26, 26, 26, 0.5); border: 2px solid rgba(220, 38, 38, 0.3); border-radius: 16px;">
-                    <div style="font-size: 3rem; margin-bottom: 1rem;">🛡️</div>
-                    <div style="font-family: 'Orbitron', sans-serif; font-size: 1.5rem; font-weight: 700; color: #dc2626; margin-bottom: 0.5rem;">SURVIVE</div>
-                    <div style="color: #a1a1aa;">Endure the apocalypse</div>
+                <div class="dc-pillar">
+                    <span class="dc-pillar-icon">🛡️</span>
+                    <div class="dc-pillar-title">SURVIVE</div>
+                    <div class="dc-pillar-desc">Endure the apocalypse</div>
                 </div>
-                <div style="text-align: center; padding: 2rem; background: rgba(26, 26, 26, 0.5); border: 2px solid rgba(220, 38, 38, 0.3); border-radius: 16px;">
-                    <div style="font-size: 3rem; margin-bottom: 1rem;">📦</div>
-                    <div style="font-family: 'Orbitron', sans-serif; font-size: 1.5rem; font-weight: 700; color: #dc2626; margin-bottom: 0.5rem;">COLLECT</div>
-                    <div style="color: #a1a1aa;">Gather rare items and gear</div>
+                <div class="dc-pillar">
+                    <span class="dc-pillar-icon">📦</span>
+                    <div class="dc-pillar-title">COLLECT</div>
+                    <div class="dc-pillar-desc">Gather rare items and gear</div>
                 </div>
             </div>
 
             <div class="dc-features">
                 <div class="dc-feature">
-                    <div class="dc-feature-icon">🏗️</div>
+                    <span class="dc-feature-icon">🏗️</span>
                     <div class="dc-feature-title">Base Building</div>
                     <div class="dc-feature-desc">Construct and fortify your survival base with advanced building mechanics</div>
                 </div>
                 <div class="dc-feature">
-                    <div class="dc-feature-icon">⚔️</div>
+                    <span class="dc-feature-icon">⚔️</span>
                     <div class="dc-feature-title">Rust-like PvP & Raiding</div>
                     <div class="dc-feature-desc">Intense player vs player combat and base raiding system</div>
                 </div>
                 <div class="dc-feature">
-                    <div class="dc-feature-icon">🔨</div>
+                    <span class="dc-feature-icon">🔨</span>
                     <div class="dc-feature-title">Crafting System</div>
                     <div class="dc-feature-desc">Craft weapons, tools, and survival gear from scavenged materials</div>
                 </div>
                 <div class="dc-feature">
-                    <div class="dc-feature-icon">🎒</div>
+                    <span class="dc-feature-icon">🎒</span>
                     <div class="dc-feature-title">World Looting</div>
                     <div class="dc-feature-desc">Scavenge abandoned buildings, vehicles, and locations for valuable loot</div>
                 </div>
                 <div class="dc-feature">
-                    <div class="dc-feature-icon">🧟</div>
+                    <span class="dc-feature-icon">🧟</span>
                     <div class="dc-feature-title">Zombie Combat</div>
                     <div class="dc-feature-desc">Face hordes of zombies with different types and behaviors</div>
                 </div>
                 <div class="dc-feature">
-                    <div class="dc-feature-icon">🏰</div>
+                    <span class="dc-feature-icon">🏰</span>
                     <div class="dc-feature-title">Dungeons</div>
                     <div class="dc-feature-desc">Explore dangerous dungeons filled with zombies and rare loot</div>
                 </div>
                 <div class="dc-feature">
-                    <div class="dc-feature-icon">📦</div>
+                    <span class="dc-feature-icon">📦</span>
                     <div class="dc-feature-title">Mystery Boxes</div>
                     <div class="dc-feature-desc">Open mystery boxes for rare items, weapons, and exclusive rewards</div>
                 </div>
@@ -535,6 +815,7 @@
         <!-- Gallery Tab -->
         <div id="gallery" class="dc-tab-content">
             <h2 class="dc-section-title">Gallery</h2>
+            <p class="dc-section-description">Screenshots and media from DeadZone Chronicles</p>
             <div class="dc-grid">
                 <div class="dc-gallery-item">
                     <div class="dc-gallery-placeholder">📸</div>
@@ -560,6 +841,7 @@
         <!-- Team Tab -->
         <div id="team" class="dc-tab-content">
             <h2 class="dc-section-title">Development Team</h2>
+            <p class="dc-section-description">The team behind DeadZone Chronicles</p>
             <div class="dc-grid">
                 <div class="dc-card dc-team-member">
                     <div class="dc-team-avatar">DW</div>
@@ -584,7 +866,8 @@
         <!-- Rules Tab -->
         <div id="rules" class="dc-tab-content">
             <h2 class="dc-section-title">Server Rules</h2>
-            <div style="max-width: 900px; margin: 0 auto;">
+            <p class="dc-section-description">Rules and guidelines for all players</p>
+            <div>
                 <div class="dc-rule-item">
                     <div class="dc-rule-title">1. Respect All Players</div>
                     <div class="dc-rule-description">
@@ -641,14 +924,14 @@
             <h2 class="dc-section-title">Server Features</h2>
             
             <!-- Available Features -->
-            <div style="margin-bottom: 4rem;">
-                <h3 style="color: #dc2626; font-size: 2rem; font-family: 'Orbitron', sans-serif; margin-bottom: 2rem; text-align: center;">
-                    ✅ Available Features
-                </h3>
+            <div class="dc-feature-section">
+                <div style="text-align: center; margin-bottom: 2rem;">
+                    <span class="dc-status-badge dc-status-available">✅ Available Features</span>
+                </div>
                 <div class="dc-grid">
                     <div class="dc-card">
-                        <h3 style="color: #dc2626; font-size: 1.5rem; margin-bottom: 1rem; font-family: 'Orbitron', sans-serif;">Base Building</h3>
-                        <ul style="color: #a1a1aa; line-height: 2;">
+                        <h3 style="font-family: 'Orbitron', sans-serif; color: #dc2626; font-size: 1.5rem; margin-bottom: 1rem; letter-spacing: 2px; text-transform: uppercase;">Base Building</h3>
+                        <ul style="font-family: 'Rajdhani', sans-serif; color: #a1a1aa; line-height: 2.2; text-align: left; font-weight: 500;">
                             <li>Advanced building system with multiple materials</li>
                             <li>Fortification and defense options</li>
                             <li>Storage and crafting stations</li>
@@ -657,8 +940,8 @@
                         </ul>
                     </div>
                     <div class="dc-card">
-                        <h3 style="color: #dc2626; font-size: 1.5rem; margin-bottom: 1rem; font-family: 'Orbitron', sans-serif;">Rust-like PvP & Raiding</h3>
-                        <ul style="color: #a1a1aa; line-height: 2;">
+                        <h3 style="font-family: 'Orbitron', sans-serif; color: #dc2626; font-size: 1.5rem; margin-bottom: 1rem; letter-spacing: 2px; text-transform: uppercase;">Rust-like PvP & Raiding</h3>
+                        <ul style="font-family: 'Rajdhani', sans-serif; color: #a1a1aa; line-height: 2.2; text-align: left; font-weight: 500;">
                             <li>Full PvP combat system</li>
                             <li>Base raiding with explosives</li>
                             <li>Raid protection timers</li>
@@ -667,8 +950,8 @@
                         </ul>
                     </div>
                     <div class="dc-card">
-                        <h3 style="color: #dc2626; font-size: 1.5rem; margin-bottom: 1rem; font-family: 'Orbitron', sans-serif;">Crafting System</h3>
-                        <ul style="color: #a1a1aa; line-height: 2;">
+                        <h3 style="font-family: 'Orbitron', sans-serif; color: #dc2626; font-size: 1.5rem; margin-bottom: 1rem; letter-spacing: 2px; text-transform: uppercase;">Crafting System</h3>
+                        <ul style="font-family: 'Rajdhani', sans-serif; color: #a1a1aa; line-height: 2.2; text-align: left; font-weight: 500;">
                             <li>Comprehensive crafting recipes</li>
                             <li>Weapon and tool crafting</li>
                             <li>Armor and clothing crafting</li>
@@ -677,8 +960,8 @@
                         </ul>
                     </div>
                     <div class="dc-card">
-                        <h3 style="color: #dc2626; font-size: 1.5rem; margin-bottom: 1rem; font-family: 'Orbitron', sans-serif;">World Looting</h3>
-                        <ul style="color: #a1a1aa; line-height: 2;">
+                        <h3 style="font-family: 'Orbitron', sans-serif; color: #dc2626; font-size: 1.5rem; margin-bottom: 1rem; letter-spacing: 2px; text-transform: uppercase;">World Looting</h3>
+                        <ul style="font-family: 'Rajdhani', sans-serif; color: #a1a1aa; line-height: 2.2; text-align: left; font-weight: 500;">
                             <li>Loot spawns across the map</li>
                             <li>Abandoned buildings and vehicles</li>
                             <li>Military locations with rare loot</li>
@@ -687,8 +970,8 @@
                         </ul>
                     </div>
                     <div class="dc-card">
-                        <h3 style="color: #dc2626; font-size: 1.5rem; margin-bottom: 1rem; font-family: 'Orbitron', sans-serif;">Zombie Combat</h3>
-                        <ul style="color: #a1a1aa; line-height: 2;">
+                        <h3 style="font-family: 'Orbitron', sans-serif; color: #dc2626; font-size: 1.5rem; margin-bottom: 1rem; letter-spacing: 2px; text-transform: uppercase;">Zombie Combat</h3>
+                        <ul style="font-family: 'Rajdhani', sans-serif; color: #a1a1aa; line-height: 2.2; text-align: left; font-weight: 500;">
                             <li>Multiple zombie types</li>
                             <li>Zombie horde events</li>
                             <li>Infection and disease mechanics</li>
@@ -697,8 +980,8 @@
                         </ul>
                     </div>
                     <div class="dc-card">
-                        <h3 style="color: #dc2626; font-size: 1.5rem; margin-bottom: 1rem; font-family: 'Orbitron', sans-serif;">Dungeons</h3>
-                        <ul style="color: #a1a1aa; line-height: 2;">
+                        <h3 style="font-family: 'Orbitron', sans-serif; color: #dc2626; font-size: 1.5rem; margin-bottom: 1rem; letter-spacing: 2px; text-transform: uppercase;">Dungeons</h3>
+                        <ul style="font-family: 'Rajdhani', sans-serif; color: #a1a1aa; line-height: 2.2; text-align: left; font-weight: 500;">
                             <li>Multiple dungeon locations</li>
                             <li>Boss zombies and challenges</li>
                             <li>Rare loot rewards</li>
@@ -707,8 +990,8 @@
                         </ul>
                     </div>
                     <div class="dc-card">
-                        <h3 style="color: #dc2626; font-size: 1.5rem; margin-bottom: 1rem; font-family: 'Orbitron', sans-serif;">Mystery Boxes</h3>
-                        <ul style="color: #a1a1aa; line-height: 2;">
+                        <h3 style="font-family: 'Orbitron', sans-serif; color: #dc2626; font-size: 1.5rem; margin-bottom: 1rem; letter-spacing: 2px; text-transform: uppercase;">Mystery Boxes</h3>
+                        <ul style="font-family: 'Rajdhani', sans-serif; color: #a1a1aa; line-height: 2.2; text-align: left; font-weight: 500;">
                             <li>Multiple mystery box types</li>
                             <li>Rare item drops</li>
                             <li>Exclusive weapon variants</li>
@@ -720,32 +1003,32 @@
             </div>
 
             <!-- In Development -->
-            <div style="margin-bottom: 4rem; padding: 2rem; background: rgba(220, 38, 38, 0.1); border: 2px solid rgba(220, 38, 38, 0.3); border-radius: 20px;">
-                <h3 style="color: #dc2626; font-size: 2rem; font-family: 'Orbitron', sans-serif; margin-bottom: 2rem; text-align: center;">
-                    🔧 In Development
-                </h3>
+            <div class="dc-feature-section" style="background: rgba(251, 191, 36, 0.05); border: 2px solid rgba(251, 191, 36, 0.3); border-radius: 20px; padding: 3rem; margin-top: 4rem;">
+                <div style="text-align: center; margin-bottom: 2rem;">
+                    <span class="dc-status-badge dc-status-development">🔧 In Development</span>
+                </div>
                 <div class="dc-grid">
-                    <div class="dc-card" style="border-color: rgba(220, 38, 38, 0.5);">
-                        <h3 style="color: #dc2626; font-size: 1.5rem; margin-bottom: 1rem; font-family: 'Orbitron', sans-serif;">Vehicle System</h3>
-                        <ul style="color: #a1a1aa; line-height: 2;">
+                    <div class="dc-card" style="border-color: rgba(251, 191, 36, 0.5);">
+                        <h3 style="font-family: 'Orbitron', sans-serif; color: #fbbf24; font-size: 1.5rem; margin-bottom: 1rem; letter-spacing: 2px; text-transform: uppercase;">Vehicle System</h3>
+                        <ul style="font-family: 'Rajdhani', sans-serif; color: #a1a1aa; line-height: 2.2; text-align: left; font-weight: 500;">
                             <li>Multiple vehicle types</li>
                             <li>Vehicle customization</li>
                             <li>Fuel and maintenance</li>
                             <li>Vehicle storage</li>
                         </ul>
                     </div>
-                    <div class="dc-card" style="border-color: rgba(220, 38, 38, 0.5);">
-                        <h3 style="color: #dc2626; font-size: 1.5rem; margin-bottom: 1rem; font-family: 'Orbitron', sans-serif;">Advanced Economy</h3>
-                        <ul style="color: #a1a1aa; line-height: 2;">
+                    <div class="dc-card" style="border-color: rgba(251, 191, 36, 0.5);">
+                        <h3 style="font-family: 'Orbitron', sans-serif; color: #fbbf24; font-size: 1.5rem; margin-bottom: 1rem; letter-spacing: 2px; text-transform: uppercase;">Advanced Economy</h3>
+                        <ul style="font-family: 'Rajdhani', sans-serif; color: #a1a1aa; line-height: 2.2; text-align: left; font-weight: 500;">
                             <li>Player trading system</li>
                             <li>Marketplace and auctions</li>
                             <li>Currency system</li>
                             <li>Barter mechanics</li>
                         </ul>
                     </div>
-                    <div class="dc-card" style="border-color: rgba(220, 38, 38, 0.5);">
-                        <h3 style="color: #dc2626; font-size: 1.5rem; margin-bottom: 1rem; font-family: 'Orbitron', sans-serif;">Events System</h3>
-                        <ul style="color: #a1a1aa; line-height: 2;">
+                    <div class="dc-card" style="border-color: rgba(251, 191, 36, 0.5);">
+                        <h3 style="font-family: 'Orbitron', sans-serif; color: #fbbf24; font-size: 1.5rem; margin-bottom: 1rem; letter-spacing: 2px; text-transform: uppercase;">Events System</h3>
+                        <ul style="font-family: 'Rajdhani', sans-serif; color: #a1a1aa; line-height: 2.2; text-align: left; font-weight: 500;">
                             <li>Dynamic world events</li>
                             <li>Zombie horde events</li>
                             <li>PvP tournaments</li>
@@ -756,14 +1039,14 @@
             </div>
 
             <!-- Coming Soon -->
-            <div style="padding: 2rem; background: rgba(153, 27, 27, 0.1); border: 2px solid rgba(153, 27, 27, 0.3); border-radius: 20px;">
-                <h3 style="color: #dc2626; font-size: 2rem; font-family: 'Orbitron', sans-serif; margin-bottom: 2rem; text-align: center;">
-                    🚀 Coming Soon
-                </h3>
-                <div class="dc-grid">
-                    <div class="dc-card" style="border-color: rgba(153, 27, 27, 0.5); opacity: 0.8;">
-                        <h3 style="color: #dc2626; font-size: 1.5rem; margin-bottom: 1rem; font-family: 'Orbitron', sans-serif;">Planned for Release</h3>
-                        <ul style="color: #a1a1aa; line-height: 2;">
+            <div class="dc-feature-section" style="background: rgba(220, 38, 38, 0.05); border: 2px solid rgba(220, 38, 38, 0.3); border-radius: 20px; padding: 3rem; margin-top: 4rem;">
+                <div style="text-align: center; margin-bottom: 2rem;">
+                    <span class="dc-status-badge dc-status-coming">🚀 Coming Soon</span>
+                </div>
+                <div class="dc-grid" style="grid-template-columns: 1fr; max-width: 800px;">
+                    <div class="dc-card" style="border-color: rgba(220, 38, 38, 0.5);">
+                        <h3 style="font-family: 'Orbitron', sans-serif; color: #dc2626; font-size: 1.5rem; margin-bottom: 1rem; letter-spacing: 2px; text-transform: uppercase;">Planned for Release</h3>
+                        <ul style="font-family: 'Rajdhani', sans-serif; color: #a1a1aa; line-height: 2.2; text-align: left; font-weight: 500;">
                             <li>Enhanced survival mechanics</li>
                             <li>Advanced weather system</li>
                             <li>NPC traders and quests</li>
@@ -799,26 +1082,9 @@
         });
 
         // Countdown Timer (TBD for now)
-        // Future implementation when release date is set
         function updateCountdown() {
-            // const releaseDate = new Date('2024-12-31T00:00:00');
-            // const now = new Date();
-            // const diff = releaseDate - now;
-            
-            // if (diff > 0) {
-            //     const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-            //     const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            //     const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            //     const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-            //     document.getElementById('countdown').textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-            // } else {
-            //     document.getElementById('countdown').textContent = 'Released!';
-            // }
+            // Future implementation when release date is set
         }
-
-        // Update countdown every second (when date is set)
-        // setInterval(updateCountdown, 1000);
-        // updateCountdown();
     </script>
 </body>
 </html>
