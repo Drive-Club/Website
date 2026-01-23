@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Economy - DeadZone Chronicles</title>
+    <link rel="icon" type="image/png" href="dclogo.png">
+    <link rel="stylesheet" href="dc-styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .dc-economy-section {
+            margin-bottom: 3rem;
+        }
+
+        .dc-economy-section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.75rem;
+            color: #dc2626;
+            margin-bottom: 1.5rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .dc-economy-content {
+            font-family: 'Rajdhani', sans-serif;
+            color: #a1a1aa;
+            line-height: 1.8;
+            font-weight: 500;
+        }
+
+        .dc-economy-content ul {
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+
+        .dc-economy-content li {
+            margin: 0.75rem 0;
+        }
+
+        .dc-currency-item {
+            background: rgba(26, 26, 26, 0.6);
+            border: 1px solid var(--dc-border);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .dc-currency-item:hover {
+            border-color: #dc2626;
+            background: rgba(26, 26, 26, 0.9);
+        }
+
+        .dc-currency-name {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            color: #dc2626;
+            margin-bottom: 0.75rem;
+            letter-spacing: 2px;
+        }
+    </style>
+</head>
+<body class="dc-page">
+    <!-- Navigation -->
+    <nav class="dc-nav">
+        <div class="dc-nav-container">
+            <a href="dc.html" class="dc-back-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Main
+            </a>
+            <ul class="dc-nav-links">
+                <li><a href="dc.html" class="dc-nav-link">Main</a></li>
+                <li><a href="dc-rules.html" class="dc-nav-link">Rules</a></li>
+                <li><a href="dc-gallery.html" class="dc-nav-link">Gallery</a></li>
+                <li><a href="dc-features.html" class="dc-nav-link">Features</a></li>
+                <li><a href="dc-team.html" class="dc-nav-link">Team</a></li>
+                <li><a href="dc-faq.html" class="dc-nav-link">FAQ</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Content -->
+    <div class="dc-content">
+        <h1 class="dc-section-title">Economy System</h1>
+        <p class="dc-section-description">
+            Learn about the economy, trading, currency, and resource management in DeadZone Chronicles.
+        </p>
+
+        <!-- Currency System -->
+        <div class="dc-panel">
+            <div class="dc-economy-section">
+                <h2 class="dc-economy-section-title">Currency System</h2>
+                <div class="dc-economy-content">
+                    <p>The economy in DeadZone Chronicles is primarily resource-based, with items and materials serving as the main form of currency.</p>
+                    
+                    <div class="dc-currency-item">
+                        <div class="dc-currency-name">Resources as Currency</div>
+                        <p>Most trading is done through barter using resources and items:</p>
+                        <ul>
+                            <li>Wood and Stone - Basic building materials</li>
+                            <li>Metal and Components - Advanced crafting materials</li>
+                            <li>Weapons and Gear - High-value trade items</li>
+                            <li>Medical Supplies - Essential survival items</li>
+                            <li>Rare Items - Premium trade currency</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Trading System -->
+        <div class="dc-panel">
+            <div class="dc-economy-section">
+                <h2 class="dc-economy-section-title">Trading System</h2>
+                <div class="dc-economy-content">
+                    <p>Players can trade with each other directly or through various methods:</p>
+                    <ul>
+                        <li><strong>Direct Trading:</strong> Face-to-face trades with other players</li>
+                        <li><strong>Drop Trading:</strong> Place items on ground for pickup (risky)</li>
+                        <li><strong>Base Trading:</strong> Secure trading areas within bases</li>
+                        <li><strong>Marketplace:</strong> Central trading hub (coming soon)</li>
+                        <li><strong>Auction System:</strong> Bid on rare items (coming soon)</li>
+                    </ul>
+                    <p style="margin-top: 1.5rem; color: #dc2626; font-weight: 600;">
+                        ⚠️ Warning: Trading with other players is done at your own risk. Be cautious of scams and always verify trades before completing them.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Resource Management -->
+        <div class="dc-panel">
+            <div class="dc-economy-section">
+                <h2 class="dc-economy-section-title">Resource Management</h2>
+                <div class="dc-economy-content">
+                    <h3 style="font-family: 'Orbitron', sans-serif; color: #dc2626; font-size: 1.25rem; margin: 1.5rem 0 1rem; letter-spacing: 2px;">Gathering Resources</h3>
+                    <ul>
+                        <li>Wood - Harvested from trees and wooden structures</li>
+                        <li>Stone - Mined from rocks and stone deposits</li>
+                        <li>Metal - Found in scrap piles and vehicles</li>
+                        <li>Cloth - Collected from clothing and fabric items</li>
+                        <li>Components - Scavenged from electronics and machinery</li>
+                    </ul>
+
+                    <h3 style="font-family: 'Orbitron', sans-serif; color: #dc2626; font-size: 1.25rem; margin: 1.5rem 0 1rem; letter-spacing: 2px;">Resource Storage</h3>
+                    <ul>
+                        <li>Store resources in containers within your base</li>
+                        <li>Use multiple storage locations for security</li>
+                        <li>Organize resources by type for easy access</li>
+                        <li>Keep valuable resources well-protected</li>
+                    </ul>
+
+                    <h3 style="font-family: 'Orbitron', sans-serif; color: #dc2626; font-size: 1.25rem; margin: 1.5rem 0 1rem; letter-spacing: 2px;">Resource Value</h3>
+                    <p>Resource values fluctuate based on:</p>
+                    <ul>
+                        <li>Server economy and supply/demand</li>
+                        <li>Rarity and difficulty to obtain</li>
+                        <li>Usefulness in crafting and building</li>
+                        <li>Current meta and player preferences</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Item Economy -->
+        <div class="dc-panel">
+            <div class="dc-economy-section">
+                <h2 class="dc-economy-section-title">Item Economy</h2>
+                <div class="dc-economy-content">
+                    <h3 style="font-family: 'Orbitron', sans-serif; color: #dc2626; font-size: 1.25rem; margin: 1.5rem 0 1rem; letter-spacing: 2px;">Item Rarity Tiers</h3>
+                    <ul>
+                        <li><strong>Common:</strong> Basic items, easy to find</li>
+                        <li><strong>Uncommon:</strong> Standard items, moderate rarity</li>
+                        <li><strong>Rare:</strong> Valuable items, harder to obtain</li>
+                        <li><strong>Epic:</strong> High-tier items, very rare</li>
+                        <li><strong>Legendary:</strong> Extremely rare, highly valuable</li>
+                    </ul>
+
+                    <h3 style="font-family: 'Orbitron', sans-serif; color: #dc2626; font-size: 1.25rem; margin: 1.5rem 0 1rem; letter-spacing: 2px;">High-Value Items</h3>
+                    <ul>
+                        <li>Rare weapons and attachments</li>
+                        <li>Advanced armor sets</li>
+                        <li>Mystery box exclusive items</li>
+                        <li>Dungeon boss rewards</li>
+                        <li>Event-exclusive cosmetics</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Future Economy Features -->
+        <div class="dc-panel" style="background: rgba(251, 191, 36, 0.05); border-color: rgba(251, 191, 36, 0.5);">
+            <div class="dc-economy-section">
+                <h2 class="dc-economy-section-title" style="color: #fbbf24;">Future Economy Features</h2>
+                <div class="dc-economy-content">
+                    <p>The following economy features are planned for future updates:</p>
+                    <ul>
+                        <li>Dedicated currency system</li>
+                        <li>Central marketplace and trading hub</li>
+                        <li>Auction house for rare items</li>
+                        <li>NPC traders and shops</li>
+                        <li>Economic events and market fluctuations</li>
+                        <li>Player-run shops and businesses</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Links & Resources - DeadZone Chronicles</title>
+    <link rel="icon" type="image/png" href="dclogo.png">
+    <link rel="stylesheet" href="dc-styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .dc-links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .dc-link-card {
+            background: rgba(26, 26, 26, 0.6);
+            border: 1px solid var(--dc-border);
+            border-radius: 16px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dc-link-card:hover {
+            transform: translateY(-8px);
+            border-color: #dc2626;
+            background: rgba(26, 26, 26, 0.9);
+            box-shadow: 0 10px 30px rgba(220, 38, 38, 0.2);
+        }
+
+        .dc-link-card.disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            filter: grayscale(100%);
+        }
+
+        .dc-link-card.disabled:hover {
+            transform: none;
+            border-color: var(--dc-border);
+            background: rgba(26, 26, 26, 0.6);
+            box-shadow: none;
+        }
+
+        .dc-link-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .dc-link-name {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #dc2626;
+            margin-bottom: 0.5rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .dc-link-card.disabled .dc-link-name {
+            color: #6b7280;
+        }
+
+        .dc-link-status {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 0.875rem;
+            color: #6b7280;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .dc-link-card:not(.disabled) .dc-link-status {
+            color: #22c55e;
+        }
+    </style>
+</head>
+<body class="dc-page">
+    <!-- Navigation -->
+    <nav class="dc-nav">
+        <div class="dc-nav-container">
+            <a href="dc.html" class="dc-back-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Main
+            </a>
+            <ul class="dc-nav-links">
+                <li><a href="dc.html" class="dc-nav-link">Main</a></li>
+                <li><a href="dc-rules.html" class="dc-nav-link">Rules</a></li>
+                <li><a href="dc-gallery.html" class="dc-nav-link">Gallery</a></li>
+                <li><a href="dc-features.html" class="dc-nav-link">Features</a></li>
+                <li><a href="dc-team.html" class="dc-nav-link">Team</a></li>
+                <li><a href="dc-faq.html" class="dc-nav-link">FAQ</a></li>
+                <li><a href="dc-shop.html" class="dc-nav-link">Shop</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Content -->
+    <div class="dc-content">
+        <h1 class="dc-section-title">Links & Resources</h1>
+        <p class="dc-section-description">
+            All official DeadZone Chronicles links, resources, and community platforms.
+        </p>
+
+        <div class="dc-links-grid" id="linksContainer">
+            <!-- Links will be dynamically generated from dc-config.js -->
+        </div>
+    </div>
+
+    <script src="dc-config.js"></script>
+    <script>
+        // Generate links from configuration
+        function generateLinks() {
+            const container = document.getElementById('linksContainer');
+            if (!container || typeof dcConfig === 'undefined') return;
+
+            const links = [];
+
+            // Add Discord (always enabled)
+            links.push({
+                name: 'Discord',
+                icon: '💬',
+                url: dcConfig.discord.url,
+                enabled: true,
+                openInNewTab: dcConfig.discord.openInNewTab
+            });
+
+            // Add Forums if enabled
+            if (dcConfig.forums && dcConfig.forums.enabled) {
+                links.push({
+                    name: dcConfig.forums.name,
+                    icon: dcConfig.forums.icon,
+                    url: dcConfig.forums.url,
+                    enabled: true,
+                    openInNewTab: dcConfig.forums.openInNewTab
+                });
+            }
+
+            // Add Roadmap if enabled
+            if (dcConfig.roadmap && dcConfig.roadmap.enabled) {
+                links.push({
+                    name: dcConfig.roadmap.name,
+                    icon: dcConfig.roadmap.icon,
+                    url: dcConfig.roadmap.url,
+                    enabled: true,
+                    openInNewTab: dcConfig.roadmap.openInNewTab
+                });
+            }
+
+            // Add Wiki if enabled
+            if (dcConfig.wiki && dcConfig.wiki.enabled) {
+                links.push({
+                    name: dcConfig.wiki.name,
+                    icon: dcConfig.wiki.icon,
+                    url: dcConfig.wiki.url,
+                    enabled: true,
+                    openInNewTab: dcConfig.wiki.openInNewTab
+                });
+            }
+
+            // Add Status if enabled
+            if (dcConfig.status && dcConfig.status.enabled) {
+                links.push({
+                    name: dcConfig.status.name,
+                    icon: dcConfig.status.icon,
+                    url: dcConfig.status.url,
+                    enabled: true,
+                    openInNewTab: dcConfig.status.openInNewTab
+                });
+            }
+
+            // Add Support if enabled
+            if (dcConfig.support && dcConfig.support.enabled) {
+                links.push({
+                    name: dcConfig.support.name,
+                    icon: dcConfig.support.icon,
+                    url: dcConfig.support.url,
+                    enabled: true,
+                    openInNewTab: dcConfig.support.openInNewTab
+                });
+            }
+
+            // Add Shop if enabled
+            if (dcConfig.shop && dcConfig.shop.enabled) {
+                links.push({
+                    name: 'Server Shop',
+                    icon: '🛒',
+                    url: dcConfig.shop.url,
+                    enabled: true,
+                    openInNewTab: dcConfig.shop.openInNewTab
+                });
+            }
+
+            // Add custom links
+            if (dcConfig.customLinks && Array.isArray(dcConfig.customLinks)) {
+                dcConfig.customLinks.forEach(link => {
+                    if (link.enabled) {
+                        links.push(link);
+                    }
+                });
+            }
+
+            // Generate HTML
+            links.forEach(link => {
+                const card = document.createElement('a');
+                card.className = 'dc-link-card';
+                card.href = link.url;
+                if (link.openInNewTab) {
+                    card.target = '_blank';
+                    card.rel = 'noopener noreferrer';
+                }
+
+                card.innerHTML = `
+                    <span class="dc-link-icon">${link.icon}</span>
+                    <div class="dc-link-name">${link.name}</div>
+                    <div class="dc-link-status">${link.enabled ? 'Available' : 'Coming Soon'}</div>
+                `;
+
+                container.appendChild(card);
+            });
+
+            // Add disabled/coming soon links
+            const disabledLinks = [];
+
+            if (!dcConfig.forums || !dcConfig.forums.enabled) {
+                disabledLinks.push({ name: dcConfig.forums?.name || 'Forums', icon: dcConfig.forums?.icon || '💬' });
+            }
+            if (!dcConfig.roadmap || !dcConfig.roadmap.enabled) {
+                disabledLinks.push({ name: dcConfig.roadmap?.name || 'Roadmap', icon: dcConfig.roadmap?.icon || '🗺️' });
+            }
+            if (!dcConfig.wiki || !dcConfig.wiki.enabled) {
+                disabledLinks.push({ name: dcConfig.wiki?.name || 'Wiki', icon: dcConfig.wiki?.icon || '📖' });
+            }
+            if (!dcConfig.status || !dcConfig.status.enabled) {
+                disabledLinks.push({ name: dcConfig.status?.name || 'Server Status', icon: dcConfig.status?.icon || '📊' });
+            }
+            if (!dcConfig.support || !dcConfig.support.enabled) {
+                disabledLinks.push({ name: dcConfig.support?.name || 'Support', icon: dcConfig.support?.icon || '🎫' });
+            }
+            if (!dcConfig.shop || !dcConfig.shop.enabled) {
+                disabledLinks.push({ name: 'Server Shop', icon: '🛒' });
+            }
+
+            disabledLinks.forEach(link => {
+                const card = document.createElement('div');
+                card.className = 'dc-link-card disabled';
+
+                card.innerHTML = `
+                    <span class="dc-link-icon">${link.icon}</span>
+                    <div class="dc-link-name">${link.name}</div>
+                    <div class="dc-link-status">Coming Soon</div>
+                `;
+
+                container.appendChild(card);
+            });
+        }
+
+        // Initialize on page load
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', generateLinks);
+        } else {
+            generateLinks();
+        }
+    </script>
+</body>
+</html>

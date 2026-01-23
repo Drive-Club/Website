@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overview - DeadZone Chronicles</title>
+    <link rel="icon" type="image/png" href="dclogo.png">
+    <link rel="stylesheet" href="dc-styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .dc-pillars {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.5rem;
+            max-width: 1100px;
+            margin: 3rem auto;
+        }
+
+        .dc-pillar {
+            text-align: center;
+            padding: 2.5rem 1.5rem;
+            background: rgba(26, 26, 26, 0.6);
+            border: 2px solid var(--dc-border);
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .dc-pillar:hover {
+            transform: translateY(-8px) scale(1.05);
+            border-color: #dc2626;
+            box-shadow: 0 15px 40px rgba(220, 38, 38, 0.3);
+            background: rgba(26, 26, 26, 0.9);
+        }
+
+        .dc-pillar-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .dc-pillar-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #dc2626;
+            margin-bottom: 0.75rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .dc-pillar-desc {
+            font-family: 'Rajdhani', sans-serif;
+            color: #a1a1aa;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .dc-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .dc-feature {
+            text-align: center;
+            padding: 2rem 1.5rem;
+            background: rgba(26, 26, 26, 0.6);
+            border-radius: 16px;
+            border: 1px solid var(--dc-border);
+            transition: all 0.3s ease;
+        }
+
+        .dc-feature:hover {
+            transform: translateY(-5px);
+            border-color: #dc2626;
+            background: rgba(26, 26, 26, 0.9);
+        }
+
+        .dc-feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .dc-feature-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #dc2626;
+            margin-bottom: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .dc-feature-desc {
+            font-family: 'Rajdhani', sans-serif;
+            color: #a1a1aa;
+            font-size: 0.9375rem;
+            font-weight: 500;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body class="dc-page">
+    <!-- Navigation -->
+    <nav class="dc-nav">
+        <div class="dc-nav-container">
+            <a href="dc.html" class="dc-back-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Main
+            </a>
+            <ul class="dc-nav-links">
+                <li><a href="dc.html" class="dc-nav-link">Main</a></li>
+                <li><a href="dc-rules.html" class="dc-nav-link">Rules</a></li>
+                <li><a href="dc-gallery.html" class="dc-nav-link">Gallery</a></li>
+                <li><a href="dc-features.html" class="dc-nav-link">Features</a></li>
+                <li><a href="dc-team.html" class="dc-nav-link">Team</a></li>
+                <li><a href="dc-faq.html" class="dc-nav-link">FAQ</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Content -->
+    <div class="dc-content">
+        <h1 class="dc-section-title">Welcome to the DeadZone</h1>
+        <p class="dc-section-description" style="font-size: 1.25rem; line-height: 2;">
+            <strong style="color: #dc2626;">The apocalypse is coming.</strong> DeadZone Chronicles is a hardcore zombie survival experience 
+            built from the ground up by developers who understand what makes survival games legendary. This isn't a reskin. This isn't a 
+            quick cash grab. This is <strong style="color: #dc2626;">pure, custom-coded excellence.</strong> Every system, every mechanic, 
+            every interaction has been hand-crafted with precision. Engage in intense Rust-like PvP combat, raid enemy fortresses, craft 
+            legendary weapons, loot the wasteland, face hordes of zombies, explore dangerous dungeons, and discover rare mystery boxes. 
+            <strong style="color: #dc2626;">Only the strongest will survive. Will you be among them?</strong>
+        </p>
+
+        <!-- Core Pillars -->
+        <div class="dc-pillars">
+            <div class="dc-pillar">
+                <span class="dc-pillar-icon">🔨</span>
+                <div class="dc-pillar-title">BUILD</div>
+                <div class="dc-pillar-desc">Construct and fortify your base</div>
+            </div>
+            <div class="dc-pillar">
+                <span class="dc-pillar-icon">🎒</span>
+                <div class="dc-pillar-title">LOOT</div>
+                <div class="dc-pillar-desc">Scavenge the wasteland for resources</div>
+            </div>
+            <div class="dc-pillar">
+                <span class="dc-pillar-icon">⚔️</span>
+                <div class="dc-pillar-title">FIGHT</div>
+                <div class="dc-pillar-desc">Battle zombies and players</div>
+            </div>
+            <div class="dc-pillar">
+                <span class="dc-pillar-icon">🛡️</span>
+                <div class="dc-pillar-title">SURVIVE</div>
+                <div class="dc-pillar-desc">Endure the apocalypse</div>
+            </div>
+            <div class="dc-pillar">
+                <span class="dc-pillar-icon">📦</span>
+                <div class="dc-pillar-title">COLLECT</div>
+                <div class="dc-pillar-desc">Gather rare items and gear</div>
+            </div>
+        </div>
+
+        <!-- Key Features -->
+        <div class="dc-panel">
+            <h2 style="font-family: 'Orbitron', sans-serif; color: #dc2626; font-size: 2rem; margin-bottom: 2rem; letter-spacing: 3px; text-transform: uppercase; text-align: center;">Key Features</h2>
+            <div class="dc-features">
+                <div class="dc-feature">
+                    <span class="dc-feature-icon">🏗️</span>
+                    <div class="dc-feature-title">Base Building</div>
+                    <div class="dc-feature-desc">Construct and fortify your survival base with advanced building mechanics</div>
+                </div>
+                <div class="dc-feature">
+                    <span class="dc-feature-icon">⚔️</span>
+                    <div class="dc-feature-title">Rust-like PvP & Raiding</div>
+                    <div class="dc-feature-desc">Intense player vs player combat and base raiding system</div>
+                </div>
+                <div class="dc-feature">
+                    <span class="dc-feature-icon">🔨</span>
+                    <div class="dc-feature-title">Crafting System</div>
+                    <div class="dc-feature-desc">Craft weapons, tools, and survival gear from scavenged materials</div>
+                </div>
+                <div class="dc-feature">
+                    <span class="dc-feature-icon">🎒</span>
+                    <div class="dc-feature-title">World Looting</div>
+                    <div class="dc-feature-desc">Scavenge abandoned buildings, vehicles, and locations for valuable loot</div>
+                </div>
+                <div class="dc-feature">
+                    <span class="dc-feature-icon">🧟</span>
+                    <div class="dc-feature-title">Zombie Combat</div>
+                    <div class="dc-feature-desc">Face hordes of zombies with different types and behaviors</div>
+                </div>
+                <div class="dc-feature">
+                    <span class="dc-feature-icon">🏰</span>
+                    <div class="dc-feature-title">Dungeons</div>
+                    <div class="dc-feature-desc">Explore dangerous dungeons filled with zombies and rare loot</div>
+                </div>
+                <div class="dc-feature">
+                    <span class="dc-feature-icon">📦</span>
+                    <div class="dc-feature-title">Mystery Boxes</div>
+                    <div class="dc-feature-desc">Open mystery boxes for rare items, weapons, and exclusive rewards</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Gameplay Overview -->
+        <div class="dc-panel">
+            <h2 style="font-family: 'Orbitron', sans-serif; color: #dc2626; font-size: 2rem; margin-bottom: 2rem; letter-spacing: 3px; text-transform: uppercase; text-align: center;">Gameplay Overview</h2>
+            <div style="font-family: 'Rajdhani', sans-serif; color: #a1a1aa; line-height: 1.8; font-weight: 500; max-width: 900px; margin: 0 auto;">
+                <p style="margin-bottom: 1.5rem;">
+                    DeadZone Chronicles combines the best elements of survival, PvP, and zombie apocalypse gameplay. 
+                    Players spawn into a post-apocalyptic wasteland where they must gather resources, build bases, 
+                    craft equipment, and fight both zombies and other players to survive.
+                </p>
+                <p style="margin-bottom: 1.5rem;">
+                    The server features full PvP combat everywhere, meaning you're never safe. Base raiding is a core 
+                    mechanic, so players must build and fortify their bases carefully. The world is filled with loot 
+                    locations, zombie spawns, dungeons to explore, and mystery boxes to discover.
+                </p>
+                <p style="margin-bottom: 1.5rem;">
+                    Whether you prefer solo play or teaming up with others, DeadZone Chronicles offers a challenging 
+                    and rewarding survival experience. Form clans, raid enemy bases, explore dangerous dungeons, or 
+                    simply survive in the wasteland - the choice is yours.
+                </p>
+            </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="dc-panel" style="background: rgba(220, 38, 38, 0.1); border-color: #dc2626; text-align: center;">
+            <h2 style="font-family: 'Orbitron', sans-serif; color: #dc2626; font-size: 2rem; margin-bottom: 2rem; letter-spacing: 3px; text-transform: uppercase;">Get Started</h2>
+            <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; max-width: 800px; margin: 0 auto;">
+                <a href="dc-rules.html" style="display: inline-block; padding: 1rem 2rem; background: rgba(220, 38, 38, 0.2); border: 2px solid #dc2626; color: #dc2626; text-decoration: none; border-radius: 12px; font-family: 'Orbitron', sans-serif; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; transition: all 0.3s ease;">
+                    Read Rules
+                </a>
+                <a href="dc-guides.html" style="display: inline-block; padding: 1rem 2rem; background: rgba(220, 38, 38, 0.2); border: 2px solid #dc2626; color: #dc2626; text-decoration: none; border-radius: 12px; font-family: 'Orbitron', sans-serif; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; transition: all 0.3s ease;">
+                    Player Guides
+                </a>
+                <a href="dc-features.html" style="display: inline-block; padding: 1rem 2rem; background: rgba(220, 38, 38, 0.2); border: 2px solid #dc2626; color: #dc2626; text-decoration: none; border-radius: 12px; font-family: 'Orbitron', sans-serif; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; transition: all 0.3s ease;">
+                    View Features
+                </a>
+                <a href="https://discord.gg/fF7wU3f6fN" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 1rem 2rem; background: linear-gradient(135deg, #5865F2 0%, #4752C4 100%); border: 2px solid rgba(88, 101, 242, 0.3); color: #ffffff; text-decoration: none; border-radius: 12px; font-family: 'Orbitron', sans-serif; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; transition: all 0.3s ease;">
+                    Join Discord
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

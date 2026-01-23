@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Server Shop - DeadZone Chronicles</title>
+    <link rel="icon" type="image/png" href="dclogo.png">
+    <link rel="stylesheet" href="dc-styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .dc-shop-coming-soon {
+            text-align: center;
+            padding: 6rem 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .dc-shop-icon {
+            font-size: 6rem;
+            margin-bottom: 2rem;
+            opacity: 0.5;
+            filter: grayscale(100%);
+        }
+
+        .dc-shop-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            font-weight: 900;
+            color: #a1a1aa;
+            margin-bottom: 1.5rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            text-decoration: line-through;
+        }
+
+        .dc-shop-subtitle {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.5rem;
+            color: #6b7280;
+            margin-bottom: 3rem;
+            font-weight: 500;
+        }
+
+        .dc-shop-message {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.125rem;
+            color: #6b7280;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .dc-shop-link-placeholder {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: rgba(107, 114, 128, 0.1);
+            border: 2px solid rgba(107, 114, 128, 0.3);
+            border-radius: 12px;
+            color: #6b7280;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: not-allowed;
+            opacity: 0.5;
+        }
+
+        .dc-shop-enabled {
+            opacity: 1;
+            filter: none;
+        }
+
+        .dc-shop-enabled .dc-shop-title {
+            color: #dc2626;
+            text-decoration: none;
+        }
+
+        .dc-shop-enabled .dc-shop-subtitle {
+            color: #a1a1aa;
+        }
+
+        .dc-shop-enabled .dc-shop-message {
+            color: #a1a1aa;
+        }
+
+        .dc-shop-enabled .dc-shop-link-placeholder {
+            background: rgba(220, 38, 38, 0.1);
+            border-color: #dc2626;
+            color: #dc2626;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dc-shop-enabled .dc-shop-link-placeholder:hover {
+            background: rgba(220, 38, 38, 0.2);
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body class="dc-page">
+    <!-- Navigation -->
+    <nav class="dc-nav">
+        <div class="dc-nav-container">
+            <a href="dc.html" class="dc-back-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Main
+            </a>
+            <ul class="dc-nav-links">
+                <li><a href="dc.html" class="dc-nav-link">Main</a></li>
+                <li><a href="dc-rules.html" class="dc-nav-link">Rules</a></li>
+                <li><a href="dc-gallery.html" class="dc-nav-link">Gallery</a></li>
+                <li><a href="dc-features.html" class="dc-nav-link">Features</a></li>
+                <li><a href="dc-team.html" class="dc-nav-link">Team</a></li>
+                <li><a href="dc-faq.html" class="dc-nav-link">FAQ</a></li>
+                <li><a href="dc-shop.html" class="dc-nav-link active" id="shopNavLink">Shop</a></li>
+            </ul>
+            <script src="dc-config.js"></script>
+            <script src="dc-nav.js"></script>
+        </div>
+    </nav>
+
+    <!-- Content -->
+    <div class="dc-content">
+        <div class="dc-shop-coming-soon" id="shopContainer">
+            <div class="dc-shop-icon">🛒</div>
+            <h1 class="dc-shop-title">Server Shop</h1>
+            <p class="dc-shop-subtitle">Coming Soon</p>
+            <p class="dc-shop-message">
+                The DeadZone Chronicles server shop is currently under development. 
+                Check back soon for exclusive items, cosmetics, and server perks!
+            </p>
+            <div class="dc-shop-link-placeholder" id="shopLink" style="display: none;">
+                Visit Shop
+            </div>
+        </div>
+    </div>
+
+    <script src="dc-config.js"></script>
+    <script>
+        // Load shop configuration
+        if (typeof dcConfig !== 'undefined' && dcConfig.shop) {
+            const shopConfig = dcConfig.shop;
+            const container = document.getElementById('shopContainer');
+            const shopLink = document.getElementById('shopLink');
+            const navLink = document.querySelector('.dc-nav-link[href="dc-shop.html"]');
+
+            if (shopConfig.enabled && shopConfig.url) {
+                // Enable shop
+                container.classList.add('dc-shop-enabled');
+                shopLink.style.display = 'inline-block';
+                shopLink.href = shopConfig.url;
+                shopLink.target = shopConfig.openInNewTab ? '_blank' : '_self';
+                shopLink.rel = 'noopener noreferrer';
+                shopLink.textContent = shopConfig.linkText || 'Visit Shop';
+                
+                // Update navigation
+                if (navLink) {
+                    navLink.style.opacity = '1';
+                    navLink.style.cursor = 'pointer';
+                    navLink.style.textDecoration = 'none';
+                }
+            } else {
+                // Keep shop disabled
+                if (navLink) {
+                    navLink.style.opacity = '0.5';
+                    navLink.style.cursor = 'not-allowed';
+                }
+
+                // Update title and subtitle
+                const title = container.querySelector('.dc-shop-title');
+                const subtitle = container.querySelector('.dc-shop-subtitle');
+                const message = container.querySelector('.dc-shop-message');
+                
+                if (title) title.textContent = shopConfig.title || 'Server Shop';
+                if (subtitle) subtitle.textContent = shopConfig.subtitle || '';
+                if (message) message.textContent = shopConfig.message || 'Welcome to the DeadZone Chronicles server shop!';
+            }
+        }
+    </script>
+</body>
+</html>

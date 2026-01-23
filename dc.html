@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DeadZone Chronicles - Zombie Apocalypse PvP Server</title>
-    <link rel="icon" type="image/png" href="dclogo.png">
-    <link rel="apple-touch-icon" href="dclogo.png">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="DCNEW114.png">
+    <link rel="apple-touch-icon" href="DCNEW114.png">
+    <link rel="stylesheet" href="dc-styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        /* Additional DC-specific styles for main page */
         /* DeadZone Chronicles Specific Styles */
         :root {
             --dc-red: #dc2626;
@@ -698,12 +699,19 @@
                 </svg>
                 Back to Home
             </a>
-            <ul class="dc-nav-links">
-                <li><a href="#overview" class="dc-nav-link active" data-tab="overview">Overview</a></li>
-                <li><a href="#gallery" class="dc-nav-link" data-tab="gallery">Gallery</a></li>
-                <li><a href="#team" class="dc-nav-link" data-tab="team">Team</a></li>
-                <li><a href="#rules" class="dc-nav-link" data-tab="rules">Rules</a></li>
-                <li><a href="#features" class="dc-nav-link" data-tab="features">Features</a></li>
+            <ul class="dc-nav-links" id="mainNavLinks">
+                <li><a href="dc-overview.html" class="dc-nav-link">Overview</a></li>
+                <li><a href="dc-rules.html" class="dc-nav-link">Rules</a></li>
+                <li><a href="dc-gallery.html" class="dc-nav-link">Gallery</a></li>
+                <li><a href="dc-features.html" class="dc-nav-link">Features</a></li>
+                <li><a href="dc-team.html" class="dc-nav-link">Team</a></li>
+                <li><a href="dc-faq.html" class="dc-nav-link">FAQ</a></li>
+                <li><a href="dc-guides.html" class="dc-nav-link">Guides</a></li>
+                <li><a href="dc-building.html" class="dc-nav-link">Building</a></li>
+                <li><a href="dc-economy.html" class="dc-nav-link">Economy</a></li>
+                <li><a href="dc-updates.html" class="dc-nav-link">Updates</a></li>
+                <li id="shopNavItem" style="display: none;"><a href="dc-shop.html" class="dc-nav-link" id="shopNavLink">Shop</a></li>
+                <li id="linksNavItem" style="display: none;"><a href="dc-links.html" class="dc-nav-link" id="linksNavLink">Links</a></li>
             </ul>
         </div>
     </nav>
@@ -712,10 +720,13 @@
     <section class="dc-hero">
         <div class="dc-hero-content">
             <div class="dc-logo-container">
-                <img src="dclogo.png" alt="DeadZone Chronicles" class="dc-logo">
+                <img src="DCNEW114.png" alt="DeadZone Chronicles" class="dc-logo">
             </div>
             <h1 class="dc-title">DeadZone Chronicles</h1>
-            <p class="dc-subtitle">Zombie Apocalypse Full PvP Server</p>
+            <p class="dc-subtitle" style="font-size: 1.75rem; letter-spacing: 3px;">Zombie Apocalypse • Full PvP • Built from Scratch</p>
+            <p style="font-family: 'Rajdhani', sans-serif; color: #a1a1aa; font-size: 1.125rem; margin-top: 1rem; font-weight: 500;">
+                Every system custom-coded. Every mechanic hand-crafted. This is survival reimagined.
+            </p>
             
             <div class="dc-hero-actions">
                 <div class="dc-countdown">
@@ -735,13 +746,97 @@
 
     <!-- Content Sections -->
     <div class="dc-content">
+        <!-- Quick Links Section -->
+        <div style="text-align: center; margin-bottom: 4rem;">
+            <h2 class="dc-section-title">Explore the DeadZone</h2>
+            <p class="dc-section-description" style="font-size: 1.125rem;">
+                Dive deep into every aspect of DeadZone Chronicles. From comprehensive rules to detailed guides, 
+                from feature breakdowns to development insights. <strong style="color: #dc2626;">Everything you need to prepare for the apocalypse.</strong>
+            </p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; max-width: 1200px; margin: 3rem auto;">
+                <a href="dc-overview.html" style="display: block; padding: 2rem; background: rgba(26, 26, 26, 0.6); border: 1px solid var(--dc-border); border-radius: 16px; text-decoration: none; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.borderColor='#dc2626'; this.style.background='rgba(26, 26, 26, 0.9)'" onmouseout="this.style.transform=''; this.style.borderColor='var(--dc-border)'; this.style.background='rgba(26, 26, 26, 0.6)'">
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">📖</div>
+                    <div style="font-family: 'Orbitron', sans-serif; color: #dc2626; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.5rem;">Overview</div>
+                    <div style="font-family: 'Rajdhani', sans-serif; color: #a1a1aa; font-size: 0.9375rem;">Complete game overview</div>
+                </a>
+                
+                <a href="dc-rules.html" style="display: block; padding: 2rem; background: rgba(26, 26, 26, 0.6); border: 1px solid var(--dc-border); border-radius: 16px; text-decoration: none; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.borderColor='#dc2626'; this.style.background='rgba(26, 26, 26, 0.9)'" onmouseout="this.style.transform=''; this.style.borderColor='var(--dc-border)'; this.style.background='rgba(26, 26, 26, 0.6)'">
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">📜</div>
+                    <div style="font-family: 'Orbitron', sans-serif; color: #dc2626; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.5rem;">Base Rules</div>
+                    <div style="font-family: 'Rajdhani', sans-serif; color: #a1a1aa; font-size: 0.9375rem;">Server rules and guidelines</div>
+                </a>
+                
+                <a href="dc-gallery.html" style="display: block; padding: 2rem; background: rgba(26, 26, 26, 0.6); border: 1px solid var(--dc-border); border-radius: 16px; text-decoration: none; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.borderColor='#dc2626'; this.style.background='rgba(26, 26, 26, 0.9)'" onmouseout="this.style.transform=''; this.style.borderColor='var(--dc-border)'; this.style.background='rgba(26, 26, 26, 0.6)'">
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">📸</div>
+                    <div style="font-family: 'Orbitron', sans-serif; color: #dc2626; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.5rem;">Preview Images</div>
+                    <div style="font-family: 'Rajdhani', sans-serif; color: #a1a1aa; font-size: 0.9375rem;">Screenshots and media</div>
+                </a>
+                
+                <a href="dc-features.html" style="display: block; padding: 2rem; background: rgba(26, 26, 26, 0.6); border: 1px solid var(--dc-border); border-radius: 16px; text-decoration: none; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.borderColor='#dc2626'; this.style.background='rgba(26, 26, 26, 0.9)'" onmouseout="this.style.transform=''; this.style.borderColor='var(--dc-border)'; this.style.background='rgba(26, 26, 26, 0.6)'">
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">⚙️</div>
+                    <div style="font-family: 'Orbitron', sans-serif; color: #dc2626; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.5rem;">Features</div>
+                    <div style="font-family: 'Rajdhani', sans-serif; color: #a1a1aa; font-size: 0.9375rem;">All server features</div>
+                </a>
+                
+                <a href="dc-team.html" style="display: block; padding: 2rem; background: rgba(26, 26, 26, 0.6); border: 1px solid var(--dc-border); border-radius: 16px; text-decoration: none; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.borderColor='#dc2626'; this.style.background='rgba(26, 26, 26, 0.9)'" onmouseout="this.style.transform=''; this.style.borderColor='var(--dc-border)'; this.style.background='rgba(26, 26, 26, 0.6)'">
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">👥</div>
+                    <div style="font-family: 'Orbitron', sans-serif; color: #dc2626; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.5rem;">Team</div>
+                    <div style="font-family: 'Rajdhani', sans-serif; color: #a1a1aa; font-size: 0.9375rem;">Development team</div>
+                </a>
+                
+                <a href="dc-faq.html" style="display: block; padding: 2rem; background: rgba(26, 26, 26, 0.6); border: 1px solid var(--dc-border); border-radius: 16px; text-decoration: none; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.borderColor='#dc2626'; this.style.background='rgba(26, 26, 26, 0.9)'" onmouseout="this.style.transform=''; this.style.borderColor='var(--dc-border)'; this.style.background='rgba(26, 26, 26, 0.6)'">
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">❓</div>
+                    <div style="font-family: 'Orbitron', sans-serif; color: #dc2626; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.5rem;">FAQ</div>
+                    <div style="font-family: 'Rajdhani', sans-serif; color: #a1a1aa; font-size: 0.9375rem;">Frequently asked questions</div>
+                </a>
+                
+                <a href="dc-guides.html" style="display: block; padding: 2rem; background: rgba(26, 26, 26, 0.6); border: 1px solid var(--dc-border); border-radius: 16px; text-decoration: none; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.borderColor='#dc2626'; this.style.background='rgba(26, 26, 26, 0.9)'" onmouseout="this.style.transform=''; this.style.borderColor='var(--dc-border)'; this.style.background='rgba(26, 26, 26, 0.6)'">
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">📚</div>
+                    <div style="font-family: 'Orbitron', sans-serif; color: #dc2626; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.5rem;">Guides</div>
+                    <div style="font-family: 'Rajdhani', sans-serif; color: #a1a1aa; font-size: 0.9375rem;">Player guides and tips</div>
+                </a>
+                
+                <a href="dc-building.html" style="display: block; padding: 2rem; background: rgba(26, 26, 26, 0.6); border: 1px solid var(--dc-border); border-radius: 16px; text-decoration: none; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.borderColor='#dc2626'; this.style.background='rgba(26, 26, 26, 0.9)'" onmouseout="this.style.transform=''; this.style.borderColor='var(--dc-border)'; this.style.background='rgba(26, 26, 26, 0.6)'">
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">🏗️</div>
+                    <div style="font-family: 'Orbitron', sans-serif; color: #dc2626; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.5rem;">Building</div>
+                    <div style="font-family: 'Rajdhani', sans-serif; color: #a1a1aa; font-size: 0.9375rem;">Base building guide</div>
+                </a>
+                
+                <a href="dc-economy.html" style="display: block; padding: 2rem; background: rgba(26, 26, 26, 0.6); border: 1px solid var(--dc-border); border-radius: 16px; text-decoration: none; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.borderColor='#dc2626'; this.style.background='rgba(26, 26, 26, 0.9)'" onmouseout="this.style.transform=''; this.style.borderColor='var(--dc-border)'; this.style.background='rgba(26, 26, 26, 0.6)'">
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">💰</div>
+                    <div style="font-family: 'Orbitron', sans-serif; color: #dc2626; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.5rem;">Economy</div>
+                    <div style="font-family: 'Rajdhani', sans-serif; color: #a1a1aa; font-size: 0.9375rem;">Trading and economy</div>
+                </a>
+                
+                <a href="dc-updates.html" style="display: block; padding: 2rem; background: rgba(26, 26, 26, 0.6); border: 1px solid var(--dc-border); border-radius: 16px; text-decoration: none; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.borderColor='#dc2626'; this.style.background='rgba(26, 26, 26, 0.9)'" onmouseout="this.style.transform=''; this.style.borderColor='var(--dc-border)'; this.style.background='rgba(26, 26, 26, 0.6)'">
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">📝</div>
+                    <div style="font-family: 'Orbitron', sans-serif; color: #dc2626; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.5rem;">Updates</div>
+                    <div style="font-family: 'Rajdhani', sans-serif; color: #a1a1aa; font-size: 0.9375rem;">Changelog and updates</div>
+                </a>
+                <a href="dc-shop.html" id="shopQuickLink" style="display: block; padding: 2rem; background: rgba(26, 26, 26, 0.6); border: 1px solid var(--dc-border); border-radius: 16px; text-decoration: none; transition: all 0.3s ease; opacity: 0.5; filter: grayscale(100%);" onmouseover="if(this.style.opacity !== '0.5') { this.style.transform='translateY(-5px)'; this.style.borderColor='#dc2626'; this.style.background='rgba(26, 26, 26, 0.9)'; }" onmouseout="if(this.style.opacity !== '0.5') { this.style.transform=''; this.style.borderColor='var(--dc-border)'; this.style.background='rgba(26, 26, 26, 0.6)'; }">
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">🛒</div>
+                    <div style="font-family: 'Orbitron', sans-serif; color: #6b7280; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.5rem; text-decoration: line-through;">Server Shop</div>
+                    <div style="font-family: 'Rajdhani', sans-serif; color: #6b7280; font-size: 0.9375rem;">Coming Soon</div>
+                </a>
+                <a href="dc-links.html" id="linksQuickLink" style="display: none; padding: 2rem; background: rgba(26, 26, 26, 0.6); border: 1px solid var(--dc-border); border-radius: 16px; text-decoration: none; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.borderColor='#dc2626'; this.style.background='rgba(26, 26, 26, 0.9)'" onmouseout="this.style.transform=''; this.style.borderColor='var(--dc-border)'; this.style.background='rgba(26, 26, 26, 0.6)'">
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">🔗</div>
+                    <div style="font-family: 'Orbitron', sans-serif; color: #dc2626; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.5rem;">Links</div>
+                    <div style="font-family: 'Rajdhani', sans-serif; color: #a1a1aa; font-size: 0.9375rem;">All resources & links</div>
+                </a>
+            </div>
+        </div>
+
         <!-- Overview Tab -->
         <div id="overview" class="dc-tab-content active">
             <h2 class="dc-section-title">Welcome to the DeadZone</h2>
-            <p class="dc-section-description">
-                DeadZone Chronicles is an intense zombie apocalypse survival server where players must fight for survival 
-                in a post-apocalyptic world. Engage in Rust-like PvP combat, raid enemy bases, craft weapons and gear, 
-                loot the world, fight zombies, explore dungeons, and open mystery boxes. Only the strongest will survive.
+            <p class="dc-section-description" style="font-size: 1.25rem; line-height: 2;">
+                <strong style="color: #dc2626;">The apocalypse is coming.</strong> DeadZone Chronicles isn't just another survival server—it's a 
+                complete reimagining of zombie survival gameplay, built from the ground up by developers who understand what makes survival games 
+                legendary. Every system is custom-coded. Every mechanic is hand-crafted. Every interaction is optimized. This is what happens when 
+                a full-stack developer doesn't just make a server—they architect an experience. Engage in intense Rust-like PvP combat, raid enemy 
+                fortresses, craft legendary weapons, loot the wasteland, face hordes of zombies, explore dangerous dungeons, and discover rare 
+                mystery boxes. <strong style="color: #dc2626;">Only the strongest will survive. Will you be among them?</strong>
             </p>
 
             <!-- Core Pillars -->
@@ -844,20 +939,27 @@
             <p class="dc-section-description">The team behind DeadZone Chronicles</p>
             <div class="dc-grid">
                 <div class="dc-card dc-team-member">
-                    <div class="dc-team-avatar">DW</div>
+                    <div class="dc-team-avatar" style="background-image: url('profile.jpg'); background-size: cover; background-position: center;"></div>
                     <div class="dc-team-name">Daniel Wilson-Adam</div>
                     <div class="dc-team-role">Lead Developer & Founder</div>
+                    <div style="font-family: 'Rajdhani', sans-serif; color: #a1a1aa; font-size: 0.875rem; margin-bottom: 0.5rem; font-weight: 500;">
+                        <strong style="color: #dc2626;">Alias:</strong> Intulect
+                    </div>
                     <div class="dc-team-bio">
                         Full-stack developer and game development specialist. Responsible for core systems, 
                         scripting, and overall project direction.
                     </div>
                 </div>
                 <div class="dc-card dc-team-member">
-                    <div class="dc-team-avatar">TBD</div>
-                    <div class="dc-team-name">Team Member</div>
-                    <div class="dc-team-role">Position TBD</div>
+                    <div class="dc-team-avatar" style="background-image: url('nikk.png'); background-size: cover; background-position: center;"></div>
+                    <div class="dc-team-name">Nikolaus Alan Aurich</div>
+                    <div class="dc-team-role">Backend Development Lead • Admin • Co-Founder</div>
+                    <div style="font-family: 'Rajdhani', sans-serif; color: #a1a1aa; font-size: 0.875rem; margin-bottom: 0.5rem; font-weight: 500;">
+                        <strong style="color: #dc2626;">Alias:</strong> Nikk
+                    </div>
                     <div class="dc-team-bio">
-                        More team members will be announced as development progresses.
+                        The backbone of DeadZone Chronicles. Backend development powerhouse ensuring systems run flawlessly, 
+                        databases are optimized, and server performance is second to none. Expert in Python, C++, and C#.
                     </div>
                 </div>
             </div>
@@ -1062,28 +1164,49 @@
         </div>
     </div>
 
+    <script src="dc-config.js"></script>
     <script>
-        // Tab Navigation
-        document.querySelectorAll('.dc-nav-link').forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const targetTab = link.getAttribute('data-tab');
-                
-                // Update active states
-                document.querySelectorAll('.dc-nav-link').forEach(l => l.classList.remove('active'));
-                document.querySelectorAll('.dc-tab-content').forEach(t => t.classList.remove('active'));
-                
-                link.classList.add('active');
-                document.getElementById(targetTab).classList.add('active');
-                
-                // Smooth scroll to top
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
-        });
-
         // Countdown Timer (TBD for now)
         function updateCountdown() {
             // Future implementation when release date is set
+        }
+
+        // Update navigation based on config
+        if (typeof dcConfig !== 'undefined') {
+            // Show shop link if enabled
+            if (dcConfig.shop && dcConfig.shop.enabled) {
+                const shopNavItem = document.getElementById('shopNavItem');
+                const shopNavLink = document.getElementById('shopNavLink');
+                const shopQuickLink = document.getElementById('shopQuickLink');
+                if (shopNavItem) shopNavItem.style.display = 'block';
+                if (shopNavLink) {
+                    shopNavLink.style.opacity = '1';
+                    shopNavLink.style.cursor = 'pointer';
+                }
+                if (shopQuickLink) {
+                    shopQuickLink.style.opacity = '1';
+                    shopQuickLink.style.filter = 'none';
+                    shopQuickLink.style.cursor = 'pointer';
+                    const title = shopQuickLink.querySelector('div:nth-child(2)');
+                    const subtitle = shopQuickLink.querySelector('div:nth-child(3)');
+                    if (title) {
+                        title.style.color = '#dc2626';
+                        title.style.textDecoration = 'none';
+                    }
+                    if (subtitle) subtitle.style.color = '#a1a1aa';
+                }
+            }
+
+            // Show links page if any additional links are enabled
+            if (dcConfig.forums?.enabled || dcConfig.roadmap?.enabled || 
+                dcConfig.wiki?.enabled || dcConfig.status?.enabled || 
+                dcConfig.support?.enabled || 
+                (dcConfig.customLinks && dcConfig.customLinks.some(l => l.enabled))) {
+                const linksNavItem = document.getElementById('linksNavItem');
+                const linksQuickLink = document.getElementById('linksQuickLink');
+                if (linksNavItem) linksNavItem.style.display = 'block';
+                if (linksQuickLink) linksQuickLink.style.display = 'block';
+            }
         }
     </script>
 </body>

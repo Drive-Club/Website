@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team - DeadZone Chronicles</title>
+    <link rel="icon" type="image/png" href="dclogo.png">
+    <link rel="stylesheet" href="dc-styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .dc-team-member {
+            text-align: center;
+        }
+
+        .dc-team-avatar {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background: rgba(220, 38, 38, 0.2);
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 4px solid rgba(220, 38, 38, 0.5);
+            font-size: 3.5rem;
+            color: #dc2626;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .dc-card:hover .dc-team-avatar {
+            transform: scale(1.1);
+            border-color: #dc2626;
+            box-shadow: 0 0 30px rgba(220, 38, 38, 0.5);
+        }
+
+        .dc-team-name {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .dc-team-role {
+            font-family: 'Orbitron', sans-serif;
+            color: #dc2626;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-size: 1rem;
+        }
+
+        .dc-team-bio {
+            font-family: 'Rajdhani', sans-serif;
+            color: #a1a1aa;
+            line-height: 1.7;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .dc-team-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        .dc-skill-tag {
+            padding: 0.4rem 0.875rem;
+            background: rgba(220, 38, 38, 0.1);
+            border: 1px solid rgba(220, 38, 38, 0.3);
+            border-radius: 20px;
+            color: #dc2626;
+            font-size: 0.875rem;
+            font-weight: 500;
+            font-family: 'Rajdhani', sans-serif;
+        }
+
+        .team-layout {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        @media (max-width: 768px) {
+            .team-layout {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+<body class="dc-page">
+    <!-- Navigation -->
+    <nav class="dc-nav">
+        <div class="dc-nav-container">
+            <a href="dc.html" class="dc-back-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Main
+            </a>
+            <ul class="dc-nav-links">
+                <li><a href="dc.html" class="dc-nav-link">Main</a></li>
+                <li><a href="dc-rules.html" class="dc-nav-link">Rules</a></li>
+                <li><a href="dc-gallery.html" class="dc-nav-link">Gallery</a></li>
+                <li><a href="dc-features.html" class="dc-nav-link">Features</a></li>
+                <li><a href="dc-team.html" class="dc-nav-link active">Team</a></li>
+                <li><a href="dc-faq.html" class="dc-nav-link">FAQ</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Content -->
+    <div class="dc-content">
+        <h1 class="dc-section-title">The Architects of Chaos</h1>
+        <p class="dc-section-description">
+            Meet the elite development team crafting DeadZone Chronicles from the ground up. These are the masterminds building every system, 
+            scripting every interaction, and engineering the apocalypse you'll experience. Built by developers, for survivors.
+        </p>
+
+        <!-- Core Team -->
+        <div class="dc-panel" style="background: linear-gradient(135deg, rgba(220, 38, 38, 0.1) 0%, rgba(26, 26, 26, 0.9) 100%); border: 2px solid #dc2626;">
+            <h2 style="font-family: 'Orbitron', sans-serif; color: #dc2626; font-size: 2rem; margin-bottom: 2rem; letter-spacing: 3px; text-transform: uppercase; text-align: center;">The Architect</h2>
+            <div style="max-width: 1000px; margin: 0 auto;">
+                <div style="display: grid; grid-template-columns: 300px 1fr; gap: 3rem; align-items: start;" class="team-layout">
+                    <div style="text-align: center;">
+                        <img src="profile.jpg" alt="Daniel Wilson-Adam" style="width: 100%; max-width: 300px; border-radius: 16px; border: 4px solid #dc2626; box-shadow: 0 0 40px rgba(220, 38, 38, 0.5);">
+                    </div>
+                    <div>
+                        <h3 style="font-family: 'Orbitron', sans-serif; font-size: 2.5rem; font-weight: 900; color: #dc2626; margin-bottom: 0.5rem; letter-spacing: 4px; text-transform: uppercase; background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+                            Daniel Wilson-Adam
+                        </h3>
+                        <p style="font-family: 'Orbitron', sans-serif; color: #dc2626; font-weight: 700; margin-bottom: 2rem; letter-spacing: 2px; text-transform: uppercase; font-size: 1.25rem;">
+                            Lead Developer • Founder • Systems Architect
+                        </p>
+                        <div style="font-family: 'Rajdhani', sans-serif; color: #a1a1aa; line-height: 1.9; font-size: 1.125rem; margin-bottom: 2rem; font-weight: 500;">
+                            <p style="margin-bottom: 1.5rem;">
+                                The mastermind behind DeadZone Chronicles. A Canadian-born full-stack development powerhouse with over a decade of experience 
+                                crafting complex systems from the ground up. Daniel doesn't just code—he architects entire ecosystems.
+                            </p>
+                            <p style="margin-bottom: 1.5rem;">
+                                <strong style="color: #dc2626;">Full-Stack Mastery:</strong> From frontend interfaces to backend infrastructure, every layer of DeadZone Chronicles 
+                                is meticulously engineered. Expert-level proficiency in modern web technologies, CSS architecture, and responsive design ensures 
+                                a seamless experience across all platforms.
+                            </p>
+                            <p style="margin-bottom: 1.5rem;">
+                                <strong style="color: #dc2626;">FiveM Scripting Excellence:</strong> Built the entire server framework from scratch using Lua and FiveM's 
+                                native API. Every system—from base building mechanics to zombie AI, from crafting systems to PvP combat—has been hand-crafted 
+                                with precision. No pre-made resources, no shortcuts. Pure, optimized, custom-coded perfection.
+                            </p>
+                            <p style="margin-bottom: 1.5rem;">
+                                <strong style="color: #dc2626;">Systems Architecture:</strong> Designed and implemented complex game systems including inventory management, 
+                                crafting trees, building mechanics, raiding systems, economy frameworks, and dynamic event systems. Every interaction, every mechanic, 
+                                every feature has been carefully balanced and optimized for performance.
+                            </p>
+                            <p>
+                                <strong style="color: #dc2626;">The Vision:</strong> DeadZone Chronicles isn't just another server—it's a complete reimagining of 
+                                zombie survival gameplay. Built with the expertise of a full-stack developer, the precision of a systems architect, and the passion 
+                                of someone who lives and breathes code. This is what happens when a developer doesn't just make a server—they craft an experience.
+                            </p>
+                        </div>
+                        <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2rem;">
+                            <span class="dc-skill-tag" style="font-size: 1rem; padding: 0.6rem 1.25rem;">Full-Stack Development</span>
+                            <span class="dc-skill-tag" style="font-size: 1rem; padding: 0.6rem 1.25rem;">FiveM Scripting</span>
+                            <span class="dc-skill-tag" style="font-size: 1rem; padding: 0.6rem 1.25rem;">Lua Programming</span>
+                            <span class="dc-skill-tag" style="font-size: 1rem; padding: 0.6rem 1.25rem;">CSS Architecture</span>
+                            <span class="dc-skill-tag" style="font-size: 1rem; padding: 0.6rem 1.25rem;">Systems Design</span>
+                            <span class="dc-skill-tag" style="font-size: 1rem; padding: 0.6rem 1.25rem;">Server Infrastructure</span>
+                            <span class="dc-skill-tag" style="font-size: 1rem; padding: 0.6rem 1.25rem;">Performance Optimization</span>
+                            <span class="dc-skill-tag" style="font-size: 1rem; padding: 0.6rem 1.25rem;">Game Mechanics</span>
+                            <span class="dc-skill-tag" style="font-size: 1rem; padding: 0.6rem 1.25rem;">Database Architecture</span>
+                            <span class="dc-skill-tag" style="font-size: 1rem; padding: 0.6rem 1.25rem;">API Development</span>
+                        </div>
+                        <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--dc-border); display: flex; gap: 2rem; flex-wrap: wrap;">
+                            <div>
+                                <div style="font-family: 'Orbitron', sans-serif; color: #dc2626; font-size: 0.875rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.5rem;">Born</div>
+                                <div style="font-family: 'Rajdhani', sans-serif; color: #a1a1aa; font-size: 1.125rem; font-weight: 600;">May 27th, 1997</div>
+                            </div>
+                            <div>
+                                <div style="font-family: 'Orbitron', sans-serif; color: #dc2626; font-size: 0.875rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.5rem;">Location</div>
+                                <div style="font-family: 'Rajdhani', sans-serif; color: #a1a1aa; font-size: 1.125rem; font-weight: 600;">Canada</div>
+                            </div>
+                            <div>
+                                <div style="font-family: 'Orbitron', sans-serif; color: #dc2626; font-size: 0.875rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.5rem;">Alias</div>
+                                <div style="font-family: 'Rajdhani', sans-serif; color: #a1a1aa; font-size: 1.125rem; font-weight: 600;">Intulect</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Development Team -->
+        <div class="dc-panel">
+            <h2 style="font-family: 'Orbitron', sans-serif; color: #dc2626; font-size: 2rem; margin-bottom: 2rem; letter-spacing: 3px; text-transform: uppercase; text-align: center;">Development Team</h2>
+            <div style="max-width: 1000px; margin: 0 auto;">
+                <div style="display: grid; grid-template-columns: 300px 1fr; gap: 3rem; align-items: start; margin-bottom: 3rem;" class="team-layout">
+                    <div style="text-align: center;">
+                        <img src="nikk.png" alt="Nikolaus Alan Aurich" style="width: 100%; max-width: 300px; border-radius: 16px; border: 4px solid #dc2626; box-shadow: 0 0 40px rgba(220, 38, 38, 0.5);">
+                    </div>
+                    <div>
+                        <h3 style="font-family: 'Orbitron', sans-serif; font-size: 2.5rem; font-weight: 900; color: #dc2626; margin-bottom: 0.5rem; letter-spacing: 4px; text-transform: uppercase; background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+                            Nikolaus Alan Aurich
+                        </h3>
+                        <p style="font-family: 'Orbitron', sans-serif; color: #dc2626; font-weight: 700; margin-bottom: 2rem; letter-spacing: 2px; text-transform: uppercase; font-size: 1.25rem;">
+                            Backend Development Lead • Admin • Co-Founder
+                        </p>
+                        <div style="font-family: 'Rajdhani', sans-serif; color: #a1a1aa; line-height: 1.9; font-size: 1.125rem; margin-bottom: 2rem; font-weight: 500;">
+                            <p style="margin-bottom: 1.5rem;">
+                                The backbone of DeadZone Chronicles. Nikolaus is the technical powerhouse that keeps our infrastructure running flawlessly. 
+                                As Co-Founder and Backend Development Lead, he's the engine that powers every system—ensuring databases are optimized, 
+                                server performance is second to none, and the entire backend architecture is rock-solid.
+                            </p>
+                            <p style="margin-bottom: 1.5rem;">
+                                <strong style="color: #dc2626;">Backend Mastery:</strong> A computer science major with exceptional expertise in Python, C++, and C#, 
+                                Nikolaus architects the robust backend systems that handle everything from player data to server operations. His precision in 
+                                database management and system architecture ensures DeadZone Chronicles runs smoothly under any load.
+                            </p>
+                            <p style="margin-bottom: 1.5rem;">
+                                <strong style="color: #dc2626;">Administrative Excellence:</strong> Beyond development, Nikolaus manages server administration with 
+                                the same precision he brings to code. From monitoring performance to optimizing resources, he ensures every aspect of the server 
+                                infrastructure operates at peak efficiency. The backbone that never breaks.
+                            </p>
+                            <p style="margin-bottom: 1.5rem;">
+                                <strong style="color: #dc2626;">The Complete Package:</strong> When he's not architecting backend systems, Nikolaus enjoys competitive 
+                                PvP gaming with the team—dominating in Rust, Call of Duty, and Battlefield. His hands-on experience extends beyond code: working construction 
+                                during summers and wrenching on cars, he brings the same precision and work ethic to every endeavor. Currently expanding into Lua, CSS, and HTML, 
+                                Nikolaus is constantly evolving and pushing boundaries.
+                            </p>
+                            <p>
+                                <strong style="color: #dc2626;">The Foundation:</strong> DeadZone Chronicles wouldn't be what it is without Nikolaus. He's not just a developer—he's 
+                                the foundation that everything else is built upon. The systems architect, the performance optimizer, the problem solver. When you need something 
+                                to work flawlessly, Nikolaus makes it happen. The backbone of the operation.
+                            </p>
+                        </div>
+                        <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2rem;">
+                            <span class="dc-skill-tag" style="font-size: 1rem; padding: 0.6rem 1.25rem;">Backend Development</span>
+                            <span class="dc-skill-tag" style="font-size: 1rem; padding: 0.6rem 1.25rem;">Server Administration</span>
+                            <span class="dc-skill-tag" style="font-size: 1rem; padding: 0.6rem 1.25rem;">Python</span>
+                            <span class="dc-skill-tag" style="font-size: 1rem; padding: 0.6rem 1.25rem;">C++</span>
+                            <span class="dc-skill-tag" style="font-size: 1rem; padding: 0.6rem 1.25rem;">C#</span>
+                            <span class="dc-skill-tag" style="font-size: 1rem; padding: 0.6rem 1.25rem;">Database Management</span>
+                            <span class="dc-skill-tag" style="font-size: 1rem; padding: 0.6rem 1.25rem;">System Architecture</span>
+                            <span class="dc-skill-tag" style="font-size: 1rem; padding: 0.6rem 1.25rem;">Performance Optimization</span>
+                            <span class="dc-skill-tag" style="font-size: 1rem; padding: 0.6rem 1.25rem;">Infrastructure</span>
+                        </div>
+                        <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--dc-border); display: flex; gap: 2rem; flex-wrap: wrap;">
+                            <div>
+                                <div style="font-family: 'Orbitron', sans-serif; color: #dc2626; font-size: 0.875rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.5rem;">Born</div>
+                                <div style="font-family: 'Rajdhani', sans-serif; color: #a1a1aa; font-size: 1.125rem; font-weight: 600;">February 28th, 2007</div>
+                            </div>
+                            <div>
+                                <div style="font-family: 'Orbitron', sans-serif; color: #dc2626; font-size: 0.875rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.5rem;">Location</div>
+                                <div style="font-family: 'Rajdhani', sans-serif; color: #a1a1aa; font-size: 1.125rem; font-weight: 600;">United States</div>
+                            </div>
+                            <div>
+                                <div style="font-family: 'Orbitron', sans-serif; color: #dc2626; font-size: 0.875rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.5rem;">Alias</div>
+                                <div style="font-family: 'Rajdhani', sans-serif; color: #a1a1aa; font-size: 1.125rem; font-weight: 600;">Nikk</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dc-grid" style="margin-top: 3rem;">
+                <div class="dc-card dc-team-member">
+                    <div class="dc-team-avatar">TBD</div>
+                    <div class="dc-team-name">Developer Position</div>
+                    <div class="dc-team-role">Open Position</div>
+                    <div class="dc-team-bio">
+                        We are looking for experienced developers to join our team. If you have experience with game development, scripting, or server management, reach out to us!
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Community Team -->
+        <div class="dc-panel">
+            <h2 style="font-family: 'Orbitron', sans-serif; color: #dc2626; font-size: 2rem; margin-bottom: 2rem; letter-spacing: 3px; text-transform: uppercase; text-align: center;">Community Team</h2>
+            <div class="dc-grid">
+                <div class="dc-card dc-team-member">
+                    <div class="dc-team-avatar">TBD</div>
+                    <div class="dc-team-name">Moderator Position</div>
+                    <div class="dc-team-role">Open Position</div>
+                    <div class="dc-team-bio">
+                        Community moderators help maintain a positive environment in-game and on Discord. Applications will open closer to release.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Join the Team -->
+        <div class="dc-panel" style="background: linear-gradient(135deg, rgba(220, 38, 38, 0.15) 0%, rgba(153, 27, 27, 0.15) 100%); border: 2px solid #dc2626; text-align: center;">
+            <h2 style="font-family: 'Orbitron', sans-serif; color: #dc2626; font-size: 2rem; margin-bottom: 1.5rem; letter-spacing: 3px; text-transform: uppercase;">Join the Architects</h2>
+            <p style="font-family: 'Rajdhani', sans-serif; color: #a1a1aa; line-height: 1.8; font-size: 1.125rem; margin-bottom: 2rem; max-width: 800px; margin-left: auto; margin-right: auto;">
+                DeadZone Chronicles is built by developers, for survivors. We're always looking for talented individuals who share our passion 
+                for creating exceptional experiences. Whether you're a developer, designer, community manager, or have other skills, 
+                <strong style="color: #dc2626;">we want to hear from you.</strong> Help us build the ultimate zombie survival experience.
+            </p>
+            <a href="https://discord.gg/fF7wU3f6fN" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 1rem 2.5rem; background: linear-gradient(135deg, #5865F2 0%, #4752C4 100%); color: #ffffff; text-decoration: none; border-radius: 12px; font-family: 'Orbitron', sans-serif; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(88, 101, 242, 0.3);">
+                Join Discord
+            </a>
+        </div>
+    </div>
+</body>
+</html>
