@@ -1,0 +1,48 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="redGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#dc2626;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#991b1b;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Circuit board pattern inside I -->
+  <g opacity="0.6">
+    <!-- Horizontal lines -->
+    <line x1="60" y1="40" x2="140" y2="40" stroke="#ef4444" stroke-width="1.5" filter="url(#glow)"/>
+    <line x1="60" y1="60" x2="140" y2="60" stroke="#ef4444" stroke-width="1.5" filter="url(#glow)"/>
+    <line x1="60" y1="80" x2="140" y2="80" stroke="#ef4444" stroke-width="1.5" filter="url(#glow)"/>
+    <line x1="60" y1="100" x2="140" y2="100" stroke="#ef4444" stroke-width="1.5" filter="url(#glow)"/>
+    <line x1="60" y1="120" x2="140" y2="120" stroke="#ef4444" stroke-width="1.5" filter="url(#glow)"/>
+    <line x1="60" y1="140" x2="140" y2="140" stroke="#ef4444" stroke-width="1.5" filter="url(#glow)"/>
+    <line x1="60" y1="160" x2="140" y2="160" stroke="#ef4444" stroke-width="1.5" filter="url(#glow)"/>
+    
+    <!-- Vertical lines -->
+    <line x1="80" y1="40" x2="80" y2="160" stroke="#ef4444" stroke-width="1.5" filter="url(#glow)"/>
+    <line x1="100" y1="40" x2="100" y2="160" stroke="#ef4444" stroke-width="1.5" filter="url(#glow)"/>
+    <line x1="120" y1="40" x2="120" y2="160" stroke="#ef4444" stroke-width="1.5" filter="url(#glow)"/>
+    
+    <!-- Connection pads -->
+    <circle cx="80" cy="60" r="3" fill="#ef4444" filter="url(#glow)"/>
+    <circle cx="100" cy="60" r="3" fill="#ef4444" filter="url(#glow)"/>
+    <circle cx="120" cy="60" r="3" fill="#ef4444" filter="url(#glow)"/>
+    <circle cx="80" cy="100" r="3" fill="#ef4444" filter="url(#glow)"/>
+    <circle cx="100" cy="100" r="3" fill="#ef4444" filter="url(#glow)"/>
+    <circle cx="120" cy="100" r="3" fill="#ef4444" filter="url(#glow)"/>
+    <circle cx="80" cy="140" r="3" fill="#ef4444" filter="url(#glow)"/>
+    <circle cx="100" cy="140" r="3" fill="#ef4444" filter="url(#glow)"/>
+    <circle cx="120" cy="140" r="3" fill="#ef4444" filter="url(#glow)"/>
+  </g>
+  
+  <!-- Letter I outline with neon glow -->
+  <path d="M 50 30 L 150 30 L 150 50 L 50 50 Z" fill="none" stroke="url(#redGradient)" stroke-width="8" filter="url(#glow)" stroke-linecap="round"/>
+  <path d="M 90 50 L 110 50 L 110 150 L 90 150 Z" fill="none" stroke="url(#redGradient)" stroke-width="8" filter="url(#glow)" stroke-linecap="round"/>
+  <path d="M 50 150 L 150 150 L 150 170 L 50 170 Z" fill="none" stroke="url(#redGradient)" stroke-width="8" filter="url(#glow)" stroke-linecap="round"/>
+</svg>

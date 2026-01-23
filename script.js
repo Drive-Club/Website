@@ -1,15 +1,35 @@
+// Loading Screen
+window.addEventListener('load', () => {
+    const loader = document.getElementById('loader');
+    const body = document.body;
+    
+    setTimeout(() => {
+        loader.classList.add('hidden');
+        body.classList.add('loaded');
+        
+        // Remove loader from DOM after animation
+        setTimeout(() => {
+            loader.style.display = 'none';
+        }, 500);
+    }, 1500);
+});
+
 // Navigation Toggle
 const navToggle = document.querySelector('.nav-toggle');
 const navMenu = document.querySelector('.nav-menu');
 
 navToggle.addEventListener('click', () => {
     navMenu.classList.toggle('active');
+    navToggle.classList.toggle('active');
+    document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
 });
 
 // Close menu when clicking on a link
 document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', () => {
         navMenu.classList.remove('active');
+        navToggle.classList.remove('active');
+        document.body.style.overflow = '';
     });
 });
 
@@ -58,7 +78,7 @@ const fadeObserver = new IntersectionObserver((entries) => {
 document.querySelectorAll('.service-card').forEach((card, index) => {
     card.style.opacity = '0';
     card.style.transform = 'translateY(30px)';
-    card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+    card.style.transition = `opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1) ${index * 0.1}s, transform 0.8s cubic-bezier(0.4, 0, 0.2, 1) ${index * 0.1}s`;
     fadeObserver.observe(card);
 });
 
@@ -66,7 +86,7 @@ document.querySelectorAll('.service-card').forEach((card, index) => {
 document.querySelectorAll('.project-card').forEach((card, index) => {
     card.style.opacity = '0';
     card.style.transform = 'translateY(30px)';
-    card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+    card.style.transition = `opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1) ${index * 0.1}s, transform 0.8s cubic-bezier(0.4, 0, 0.2, 1) ${index * 0.1}s`;
     fadeObserver.observe(card);
 });
 
@@ -74,7 +94,7 @@ document.querySelectorAll('.project-card').forEach((card, index) => {
 document.querySelectorAll('.team-card').forEach((card) => {
     card.style.opacity = '0';
     card.style.transform = 'translateY(30px)';
-    card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    card.style.transition = 'opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
     fadeObserver.observe(card);
 });
 
@@ -82,8 +102,17 @@ document.querySelectorAll('.team-card').forEach((card) => {
 document.querySelectorAll('.contact-card').forEach((card, index) => {
     card.style.opacity = '0';
     card.style.transform = 'translateY(30px)';
-    card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+    card.style.transition = `opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1) ${index * 0.15}s, transform 0.8s cubic-bezier(0.4, 0, 0.2, 1) ${index * 0.15}s`;
     fadeObserver.observe(card);
+});
+
+// Add stagger animation to section headers
+const sectionHeaders = document.querySelectorAll('.section-header');
+sectionHeaders.forEach((header, index) => {
+    header.style.opacity = '0';
+    header.style.transform = 'translateY(20px)';
+    header.style.transition = `opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1) ${index * 0.1}s, transform 0.8s cubic-bezier(0.4, 0, 0.2, 1) ${index * 0.1}s`;
+    fadeObserver.observe(header);
 });
 
 // Parallax effect for hero orbs
