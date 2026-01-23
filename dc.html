@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeadZone Chronicles - Zombie Apocalypse PvP Server</title>
+    <link rel="icon" type="image/png" href="dclogo.png">
+    <link rel="apple-touch-icon" href="dclogo.png">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* DeadZone Chronicles Specific Styles */
+        :root {
+            --dc-red: #dc2626;
+            --dc-dark-red: #991b1b;
+            --dc-black: #000000;
+            --dc-dark: #0a0a0a;
+            --dc-gray: #1a1a1a;
+        }
+
+        body.dc-page {
+            background: var(--dc-black);
+            color: #ffffff;
+            font-family: 'Rajdhani', sans-serif;
+        }
+
+        body.dc-page h1, 
+        body.dc-page h2, 
+        body.dc-page h3, 
+        body.dc-page h4, 
+        body.dc-page h5, 
+        body.dc-page h6 {
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .dc-hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(220, 38, 38, 0.1) 0%, rgba(0, 0, 0, 1) 100%);
+            padding: 8rem 2rem 4rem;
+        }
+
+        .dc-hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 0;
+            opacity: 0.3;
+        }
+
+        .dc-logo-container {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            margin-bottom: 3rem;
+        }
+
+        .dc-logo {
+            max-width: 400px;
+            width: 100%;
+            height: auto;
+            filter: drop-shadow(0 0 30px rgba(220, 38, 38, 0.6));
+            animation: logoGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes logoGlow {
+            0%, 100% {
+                filter: drop-shadow(0 0 30px rgba(220, 38, 38, 0.6));
+            }
+            50% {
+                filter: drop-shadow(0 0 50px rgba(220, 38, 38, 0.9));
+            }
+        }
+
+        .dc-title {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 900;
+            margin: 2rem 0 1rem;
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .dc-subtitle {
+            font-size: 1.5rem;
+            color: #a1a1aa;
+            margin-bottom: 3rem;
+        }
+
+        .dc-countdown {
+            background: rgba(26, 26, 26, 0.8);
+            border: 2px solid rgba(220, 38, 38, 0.3);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        .dc-countdown-label {
+            font-size: 1.25rem;
+            color: #a1a1aa;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .dc-countdown-time {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #dc2626;
+            text-shadow: 0 0 20px rgba(220, 38, 38, 0.5);
+        }
+
+        .dc-nav {
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(220, 38, 38, 0.3);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .dc-nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .dc-nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .dc-nav-link {
+            color: #a1a1aa;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .dc-nav-link:hover,
+        .dc-nav-link.active {
+            color: #dc2626;
+            background: rgba(220, 38, 38, 0.1);
+        }
+
+        .dc-nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: #dc2626;
+            transition: width 0.3s ease;
+        }
+
+        .dc-nav-link.active::after,
+        .dc-nav-link:hover::after {
+            width: 80%;
+        }
+
+        .dc-back-link {
+            color: #dc2626;
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .dc-back-link:hover {
+            color: #ef4444;
+            transform: translateX(-5px);
+        }
+
+        .dc-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .dc-tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .dc-tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .dc-section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .dc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .dc-card {
+            background: rgba(26, 26, 26, 0.8);
+            border: 1px solid rgba(220, 38, 38, 0.3);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .dc-card:hover {
+            transform: translateY(-5px);
+            border-color: #dc2626;
+            box-shadow: 0 10px 30px rgba(220, 38, 38, 0.2);
+        }
+
+        .dc-gallery-item {
+            aspect-ratio: 16/9;
+            background: var(--dc-gray);
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .dc-gallery-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #dc2626;
+            font-size: 3rem;
+        }
+
+        .dc-team-member {
+            text-align: center;
+        }
+
+        .dc-team-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: rgba(220, 38, 38, 0.2);
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid rgba(220, 38, 38, 0.5);
+            font-size: 3rem;
+            color: #dc2626;
+        }
+
+        .dc-team-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+        }
+
+        .dc-team-role {
+            color: #dc2626;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .dc-team-bio {
+            color: #a1a1aa;
+            line-height: 1.7;
+        }
+
+        .dc-rule-item {
+            padding: 1.5rem;
+            background: rgba(26, 26, 26, 0.5);
+            border-left: 4px solid #dc2626;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .dc-rule-item:hover {
+            background: rgba(26, 26, 26, 0.8);
+            transform: translateX(5px);
+        }
+
+        .dc-rule-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #dc2626;
+            margin-bottom: 0.5rem;
+        }
+
+        .dc-rule-description {
+            color: #a1a1aa;
+            line-height: 1.7;
+        }
+
+        .dc-discord-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: linear-gradient(135deg, #5865F2 0%, #4752C4 100%);
+            color: #ffffff;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.125rem;
+            transition: all 0.3s ease;
+            margin: 2rem auto;
+            display: block;
+            text-align: center;
+            max-width: 300px;
+        }
+
+        .dc-discord-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 10px 30px rgba(88, 101, 242, 0.4);
+        }
+
+        .dc-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .dc-feature {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(26, 26, 26, 0.5);
+            border-radius: 12px;
+            border: 1px solid rgba(220, 38, 38, 0.2);
+        }
+
+        .dc-feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .dc-feature-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #dc2626;
+            margin-bottom: 0.5rem;
+        }
+
+        .dc-feature-desc {
+            color: #a1a1aa;
+            font-size: 0.9375rem;
+        }
+
+        @media (max-width: 768px) {
+            .dc-nav-links {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+            .dc-nav-link {
+                font-size: 0.875rem;
+                padding: 0.4rem 0.75rem;
+            }
+
+            .dc-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .dc-logo {
+                max-width: 250px;
+            }
+
+            .dc-countdown-time {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body class="dc-page">
+    <!-- Navigation -->
+    <nav class="dc-nav">
+        <div class="dc-nav-container">
+            <a href="index.html" class="dc-back-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Home
+            </a>
+            <ul class="dc-nav-links">
+                <li><a href="#overview" class="dc-nav-link active" data-tab="overview">Overview</a></li>
+                <li><a href="#gallery" class="dc-nav-link" data-tab="gallery">Gallery</a></li>
+                <li><a href="#team" class="dc-nav-link" data-tab="team">Team</a></li>
+                <li><a href="#rules" class="dc-nav-link" data-tab="rules">Rules</a></li>
+                <li><a href="#features" class="dc-nav-link" data-tab="features">Features</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="dc-hero">
+        <div class="dc-hero-background"></div>
+        <div class="dc-logo-container">
+            <img src="dclogo.png" alt="DeadZone Chronicles" class="dc-logo">
+            <h1 class="dc-title">DeadZone Chronicles</h1>
+            <p class="dc-subtitle">Zombie Apocalypse Full PvP Server</p>
+            
+            <div class="dc-countdown">
+                <div class="dc-countdown-label">Release Date</div>
+                <div class="dc-countdown-time" id="countdown">TBD</div>
+            </div>
+
+            <a href="https://discord.gg/fF7wU3f6fN" target="_blank" rel="noopener noreferrer" class="dc-discord-btn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928-1.793 6.4-2.22 8.431-2.3a.077.077 0 0 1 .063.028c1.669.12 3.503.507 8.431 2.3a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.128 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+                </svg>
+                Join Discord
+            </a>
+        </div>
+    </section>
+
+    <!-- Content Sections -->
+    <div class="dc-content">
+        <!-- Overview Tab -->
+        <div id="overview" class="dc-tab-content active">
+            <h2 class="dc-section-title">Welcome to the DeadZone</h2>
+            <p style="text-align: center; font-size: 1.125rem; color: #a1a1aa; max-width: 800px; margin: 0 auto 3rem; line-height: 1.8;">
+                DeadZone Chronicles is an intense zombie apocalypse survival server where players must fight for survival 
+                in a post-apocalyptic world. Engage in Rust-like PvP combat, raid enemy bases, craft weapons and gear, 
+                loot the world, fight zombies, explore dungeons, and open mystery boxes. Only the strongest will survive.
+            </p>
+
+            <!-- Core Pillars -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; max-width: 1000px; margin: 3rem auto;">
+                <div style="text-align: center; padding: 2rem; background: rgba(26, 26, 26, 0.5); border: 2px solid rgba(220, 38, 38, 0.3); border-radius: 16px;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🔨</div>
+                    <div style="font-family: 'Orbitron', sans-serif; font-size: 1.5rem; font-weight: 700; color: #dc2626; margin-bottom: 0.5rem;">BUILD</div>
+                    <div style="color: #a1a1aa;">Construct and fortify your base</div>
+                </div>
+                <div style="text-align: center; padding: 2rem; background: rgba(26, 26, 26, 0.5); border: 2px solid rgba(220, 38, 38, 0.3); border-radius: 16px;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🎒</div>
+                    <div style="font-family: 'Orbitron', sans-serif; font-size: 1.5rem; font-weight: 700; color: #dc2626; margin-bottom: 0.5rem;">LOOT</div>
+                    <div style="color: #a1a1aa;">Scavenge the wasteland for resources</div>
+                </div>
+                <div style="text-align: center; padding: 2rem; background: rgba(26, 26, 26, 0.5); border: 2px solid rgba(220, 38, 38, 0.3); border-radius: 16px;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">⚔️</div>
+                    <div style="font-family: 'Orbitron', sans-serif; font-size: 1.5rem; font-weight: 700; color: #dc2626; margin-bottom: 0.5rem;">FIGHT</div>
+                    <div style="color: #a1a1aa;">Battle zombies and players</div>
+                </div>
+                <div style="text-align: center; padding: 2rem; background: rgba(26, 26, 26, 0.5); border: 2px solid rgba(220, 38, 38, 0.3); border-radius: 16px;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🛡️</div>
+                    <div style="font-family: 'Orbitron', sans-serif; font-size: 1.5rem; font-weight: 700; color: #dc2626; margin-bottom: 0.5rem;">SURVIVE</div>
+                    <div style="color: #a1a1aa;">Endure the apocalypse</div>
+                </div>
+                <div style="text-align: center; padding: 2rem; background: rgba(26, 26, 26, 0.5); border: 2px solid rgba(220, 38, 38, 0.3); border-radius: 16px;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">📦</div>
+                    <div style="font-family: 'Orbitron', sans-serif; font-size: 1.5rem; font-weight: 700; color: #dc2626; margin-bottom: 0.5rem;">COLLECT</div>
+                    <div style="color: #a1a1aa;">Gather rare items and gear</div>
+                </div>
+            </div>
+
+            <div class="dc-features">
+                <div class="dc-feature">
+                    <div class="dc-feature-icon">🏗️</div>
+                    <div class="dc-feature-title">Base Building</div>
+                    <div class="dc-feature-desc">Construct and fortify your survival base with advanced building mechanics</div>
+                </div>
+                <div class="dc-feature">
+                    <div class="dc-feature-icon">⚔️</div>
+                    <div class="dc-feature-title">Rust-like PvP & Raiding</div>
+                    <div class="dc-feature-desc">Intense player vs player combat and base raiding system</div>
+                </div>
+                <div class="dc-feature">
+                    <div class="dc-feature-icon">🔨</div>
+                    <div class="dc-feature-title">Crafting System</div>
+                    <div class="dc-feature-desc">Craft weapons, tools, and survival gear from scavenged materials</div>
+                </div>
+                <div class="dc-feature">
+                    <div class="dc-feature-icon">🎒</div>
+                    <div class="dc-feature-title">World Looting</div>
+                    <div class="dc-feature-desc">Scavenge abandoned buildings, vehicles, and locations for valuable loot</div>
+                </div>
+                <div class="dc-feature">
+                    <div class="dc-feature-icon">🧟</div>
+                    <div class="dc-feature-title">Zombie Combat</div>
+                    <div class="dc-feature-desc">Face hordes of zombies with different types and behaviors</div>
+                </div>
+                <div class="dc-feature">
+                    <div class="dc-feature-icon">🏰</div>
+                    <div class="dc-feature-title">Dungeons</div>
+                    <div class="dc-feature-desc">Explore dangerous dungeons filled with zombies and rare loot</div>
+                </div>
+                <div class="dc-feature">
+                    <div class="dc-feature-icon">📦</div>
+                    <div class="dc-feature-title">Mystery Boxes</div>
+                    <div class="dc-feature-desc">Open mystery boxes for rare items, weapons, and exclusive rewards</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Gallery Tab -->
+        <div id="gallery" class="dc-tab-content">
+            <h2 class="dc-section-title">Gallery</h2>
+            <div class="dc-grid">
+                <div class="dc-gallery-item">
+                    <div class="dc-gallery-placeholder">📸</div>
+                </div>
+                <div class="dc-gallery-item">
+                    <div class="dc-gallery-placeholder">📸</div>
+                </div>
+                <div class="dc-gallery-item">
+                    <div class="dc-gallery-placeholder">📸</div>
+                </div>
+                <div class="dc-gallery-item">
+                    <div class="dc-gallery-placeholder">📸</div>
+                </div>
+                <div class="dc-gallery-item">
+                    <div class="dc-gallery-placeholder">📸</div>
+                </div>
+                <div class="dc-gallery-item">
+                    <div class="dc-gallery-placeholder">📸</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Team Tab -->
+        <div id="team" class="dc-tab-content">
+            <h2 class="dc-section-title">Development Team</h2>
+            <div class="dc-grid">
+                <div class="dc-card dc-team-member">
+                    <div class="dc-team-avatar">DW</div>
+                    <div class="dc-team-name">Daniel Wilson-Adam</div>
+                    <div class="dc-team-role">Lead Developer & Founder</div>
+                    <div class="dc-team-bio">
+                        Full-stack developer and game development specialist. Responsible for core systems, 
+                        scripting, and overall project direction.
+                    </div>
+                </div>
+                <div class="dc-card dc-team-member">
+                    <div class="dc-team-avatar">TBD</div>
+                    <div class="dc-team-name">Team Member</div>
+                    <div class="dc-team-role">Position TBD</div>
+                    <div class="dc-team-bio">
+                        More team members will be announced as development progresses.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Rules Tab -->
+        <div id="rules" class="dc-tab-content">
+            <h2 class="dc-section-title">Server Rules</h2>
+            <div style="max-width: 900px; margin: 0 auto;">
+                <div class="dc-rule-item">
+                    <div class="dc-rule-title">1. Respect All Players</div>
+                    <div class="dc-rule-description">
+                        Treat all players with respect. Harassment, discrimination, or toxic behavior will not be tolerated.
+                    </div>
+                </div>
+                <div class="dc-rule-item">
+                    <div class="dc-rule-title">2. No Cheating or Exploiting</div>
+                    <div class="dc-rule-description">
+                        Any form of cheating, hacking, or exploiting game mechanics is strictly prohibited and will result in a permanent ban.
+                    </div>
+                </div>
+                <div class="dc-rule-item">
+                    <div class="dc-rule-title">3. PvP Guidelines</div>
+                    <div class="dc-rule-description">
+                        PvP is allowed everywhere. However, excessive spawn camping or targeting new players repeatedly may result in warnings.
+                    </div>
+                </div>
+                <div class="dc-rule-item">
+                    <div class="dc-rule-title">4. Base Raiding</div>
+                    <div class="dc-rule-description">
+                        Base raiding is permitted, but excessive griefing or destroying bases without purpose is discouraged.
+                    </div>
+                </div>
+                <div class="dc-rule-item">
+                    <div class="dc-rule-title">5. No Advertising</div>
+                    <div class="dc-rule-description">
+                        Advertising other servers, services, or products is not allowed in-game or on Discord.
+                    </div>
+                </div>
+                <div class="dc-rule-item">
+                    <div class="dc-rule-title">6. Follow Discord Rules</div>
+                    <div class="dc-rule-description">
+                        All Discord community guidelines must be followed. Discord moderators have final say.
+                    </div>
+                </div>
+                <div class="dc-rule-item">
+                    <div class="dc-rule-title">7. Report Issues</div>
+                    <div class="dc-rule-description">
+                        Report bugs, exploits, or rule violations through proper channels. False reports may result in action.
+                    </div>
+                </div>
+                <div class="dc-rule-item">
+                    <div class="dc-rule-title">8. Staff Decisions Are Final</div>
+                    <div class="dc-rule-description">
+                        All staff decisions regarding rules, bans, or server management are final. Arguing with staff will not be tolerated.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Features Tab -->
+        <div id="features" class="dc-tab-content">
+            <h2 class="dc-section-title">Server Features</h2>
+            
+            <!-- Available Features -->
+            <div style="margin-bottom: 4rem;">
+                <h3 style="color: #dc2626; font-size: 2rem; font-family: 'Orbitron', sans-serif; margin-bottom: 2rem; text-align: center;">
+                    ✅ Available Features
+                </h3>
+                <div class="dc-grid">
+                    <div class="dc-card">
+                        <h3 style="color: #dc2626; font-size: 1.5rem; margin-bottom: 1rem; font-family: 'Orbitron', sans-serif;">Base Building</h3>
+                        <ul style="color: #a1a1aa; line-height: 2;">
+                            <li>Advanced building system with multiple materials</li>
+                            <li>Fortification and defense options</li>
+                            <li>Storage and crafting stations</li>
+                            <li>Base raiding mechanics</li>
+                            <li>Building decay and maintenance</li>
+                        </ul>
+                    </div>
+                    <div class="dc-card">
+                        <h3 style="color: #dc2626; font-size: 1.5rem; margin-bottom: 1rem; font-family: 'Orbitron', sans-serif;">Rust-like PvP & Raiding</h3>
+                        <ul style="color: #a1a1aa; line-height: 2;">
+                            <li>Full PvP combat system</li>
+                            <li>Base raiding with explosives</li>
+                            <li>Raid protection timers</li>
+                            <li>Clan warfare system</li>
+                            <li>Kill feed and combat logs</li>
+                        </ul>
+                    </div>
+                    <div class="dc-card">
+                        <h3 style="color: #dc2626; font-size: 1.5rem; margin-bottom: 1rem; font-family: 'Orbitron', sans-serif;">Crafting System</h3>
+                        <ul style="color: #a1a1aa; line-height: 2;">
+                            <li>Comprehensive crafting recipes</li>
+                            <li>Weapon and tool crafting</li>
+                            <li>Armor and clothing crafting</li>
+                            <li>Medical supplies crafting</li>
+                            <li>Crafting skill progression</li>
+                        </ul>
+                    </div>
+                    <div class="dc-card">
+                        <h3 style="color: #dc2626; font-size: 1.5rem; margin-bottom: 1rem; font-family: 'Orbitron', sans-serif;">World Looting</h3>
+                        <ul style="color: #a1a1aa; line-height: 2;">
+                            <li>Loot spawns across the map</li>
+                            <li>Abandoned buildings and vehicles</li>
+                            <li>Military locations with rare loot</li>
+                            <li>Dynamic loot respawn system</li>
+                            <li>Loot rarity tiers</li>
+                        </ul>
+                    </div>
+                    <div class="dc-card">
+                        <h3 style="color: #dc2626; font-size: 1.5rem; margin-bottom: 1rem; font-family: 'Orbitron', sans-serif;">Zombie Combat</h3>
+                        <ul style="color: #a1a1aa; line-height: 2;">
+                            <li>Multiple zombie types</li>
+                            <li>Zombie horde events</li>
+                            <li>Infection and disease mechanics</li>
+                            <li>Zombie AI behaviors</li>
+                            <li>Zombie spawn system</li>
+                        </ul>
+                    </div>
+                    <div class="dc-card">
+                        <h3 style="color: #dc2626; font-size: 1.5rem; margin-bottom: 1rem; font-family: 'Orbitron', sans-serif;">Dungeons</h3>
+                        <ul style="color: #a1a1aa; line-height: 2;">
+                            <li>Multiple dungeon locations</li>
+                            <li>Boss zombies and challenges</li>
+                            <li>Rare loot rewards</li>
+                            <li>Dungeon respawn timers</li>
+                            <li>Progressive difficulty</li>
+                        </ul>
+                    </div>
+                    <div class="dc-card">
+                        <h3 style="color: #dc2626; font-size: 1.5rem; margin-bottom: 1rem; font-family: 'Orbitron', sans-serif;">Mystery Boxes</h3>
+                        <ul style="color: #a1a1aa; line-height: 2;">
+                            <li>Multiple mystery box types</li>
+                            <li>Rare item drops</li>
+                            <li>Exclusive weapon variants</li>
+                            <li>Cosmetic items</li>
+                            <li>Special event boxes</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- In Development -->
+            <div style="margin-bottom: 4rem; padding: 2rem; background: rgba(220, 38, 38, 0.1); border: 2px solid rgba(220, 38, 38, 0.3); border-radius: 20px;">
+                <h3 style="color: #dc2626; font-size: 2rem; font-family: 'Orbitron', sans-serif; margin-bottom: 2rem; text-align: center;">
+                    🔧 In Development
+                </h3>
+                <div class="dc-grid">
+                    <div class="dc-card" style="border-color: rgba(220, 38, 38, 0.5);">
+                        <h3 style="color: #dc2626; font-size: 1.5rem; margin-bottom: 1rem; font-family: 'Orbitron', sans-serif;">Vehicle System</h3>
+                        <ul style="color: #a1a1aa; line-height: 2;">
+                            <li>Multiple vehicle types</li>
+                            <li>Vehicle customization</li>
+                            <li>Fuel and maintenance</li>
+                            <li>Vehicle storage</li>
+                        </ul>
+                    </div>
+                    <div class="dc-card" style="border-color: rgba(220, 38, 38, 0.5);">
+                        <h3 style="color: #dc2626; font-size: 1.5rem; margin-bottom: 1rem; font-family: 'Orbitron', sans-serif;">Advanced Economy</h3>
+                        <ul style="color: #a1a1aa; line-height: 2;">
+                            <li>Player trading system</li>
+                            <li>Marketplace and auctions</li>
+                            <li>Currency system</li>
+                            <li>Barter mechanics</li>
+                        </ul>
+                    </div>
+                    <div class="dc-card" style="border-color: rgba(220, 38, 38, 0.5);">
+                        <h3 style="color: #dc2626; font-size: 1.5rem; margin-bottom: 1rem; font-family: 'Orbitron', sans-serif;">Events System</h3>
+                        <ul style="color: #a1a1aa; line-height: 2;">
+                            <li>Dynamic world events</li>
+                            <li>Zombie horde events</li>
+                            <li>PvP tournaments</li>
+                            <li>Special seasonal events</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Coming Soon -->
+            <div style="padding: 2rem; background: rgba(153, 27, 27, 0.1); border: 2px solid rgba(153, 27, 27, 0.3); border-radius: 20px;">
+                <h3 style="color: #dc2626; font-size: 2rem; font-family: 'Orbitron', sans-serif; margin-bottom: 2rem; text-align: center;">
+                    🚀 Coming Soon
+                </h3>
+                <div class="dc-grid">
+                    <div class="dc-card" style="border-color: rgba(153, 27, 27, 0.5); opacity: 0.8;">
+                        <h3 style="color: #dc2626; font-size: 1.5rem; margin-bottom: 1rem; font-family: 'Orbitron', sans-serif;">Planned for Release</h3>
+                        <ul style="color: #a1a1aa; line-height: 2;">
+                            <li>Enhanced survival mechanics</li>
+                            <li>Advanced weather system</li>
+                            <li>NPC traders and quests</li>
+                            <li>Clan system improvements</li>
+                            <li>Leaderboards and statistics</li>
+                            <li>More dungeon types</li>
+                            <li>Additional mystery box variants</li>
+                            <li>Seasonal content updates</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tab Navigation
+        document.querySelectorAll('.dc-nav-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetTab = link.getAttribute('data-tab');
+                
+                // Update active states
+                document.querySelectorAll('.dc-nav-link').forEach(l => l.classList.remove('active'));
+                document.querySelectorAll('.dc-tab-content').forEach(t => t.classList.remove('active'));
+                
+                link.classList.add('active');
+                document.getElementById(targetTab).classList.add('active');
+                
+                // Smooth scroll to top
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+
+        // Countdown Timer (TBD for now)
+        // Future implementation when release date is set
+        function updateCountdown() {
+            // const releaseDate = new Date('2024-12-31T00:00:00');
+            // const now = new Date();
+            // const diff = releaseDate - now;
+            
+            // if (diff > 0) {
+            //     const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            //     const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            //     const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            //     const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            //     document.getElementById('countdown').textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+            // } else {
+            //     document.getElementById('countdown').textContent = 'Released!';
+            // }
+        }
+
+        // Update countdown every second (when date is set)
+        // setInterval(updateCountdown, 1000);
+        // updateCountdown();
+    </script>
+</body>
+</html>
