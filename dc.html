@@ -250,7 +250,7 @@
             position: relative;
             overflow: hidden;
             background: linear-gradient(135deg, rgba(220, 38, 38, 0.05) 0%, rgba(0, 0, 0, 1) 50%, rgba(153, 27, 27, 0.05) 100%);
-            padding: 8rem 2rem 4rem;
+            padding: 10rem 2rem 6rem;
         }
 
         .dc-hero::before {
@@ -395,7 +395,7 @@
         .dc-content {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 6rem 2rem;
+            padding: 6rem 2rem 8rem;
         }
 
         .dc-tab-content {
@@ -832,20 +832,40 @@
                 </svg>
                 Back to Home
             </a>
-            <ul class="dc-nav-links" id="mainNavLinks">
-                <li><a href="dc-overview.html" class="dc-nav-link">Overview</a></li>
-                <li><a href="dc-rules.html" class="dc-nav-link">Rules</a></li>
-                <li><a href="dc-gallery.html" class="dc-nav-link">Gallery</a></li>
-                <li><a href="dc-features.html" class="dc-nav-link">Features</a></li>
-                <li><a href="dc-team.html" class="dc-nav-link">Team</a></li>
-                <li><a href="dc-faq.html" class="dc-nav-link">FAQ</a></li>
-                <li><a href="dc-guides.html" class="dc-nav-link">Guides</a></li>
-                <li><a href="dc-building.html" class="dc-nav-link">Building</a></li>
-                <li><a href="dc-economy.html" class="dc-nav-link">Economy</a></li>
-                <li><a href="dc-updates.html" class="dc-nav-link">Updates</a></li>
-                <li id="shopNavItem" style="display: none;"><a href="dc-shop.html" class="dc-nav-link" id="shopNavLink">Shop</a></li>
-                <li id="linksNavItem" style="display: none;"><a href="dc-links.html" class="dc-nav-link" id="linksNavLink">Links</a></li>
-            </ul>
+            <div class="dc-dropdown">
+                <button class="dc-dropdown-toggle" id="navDropdownToggle" aria-label="Navigation Menu">
+                    <span>Navigation</span>
+                </button>
+                <div class="dc-dropdown-menu" id="navDropdownMenu">
+                    <div class="dc-dropdown-section">
+                        <div class="dc-dropdown-section-title">Main Pages</div>
+                        <ul class="dc-dropdown-links">
+                            <li><a href="dc-overview.html" class="dc-dropdown-link">📖 Overview</a></li>
+                            <li><a href="dc-features.html" class="dc-dropdown-link">⚙️ Features</a></li>
+                            <li><a href="dc-gallery.html" class="dc-dropdown-link">📸 Gallery</a></li>
+                            <li><a href="dc-team.html" class="dc-dropdown-link">👥 Team</a></li>
+                        </ul>
+                    </div>
+                    <div class="dc-dropdown-section">
+                        <div class="dc-dropdown-section-title">Information</div>
+                        <ul class="dc-dropdown-links">
+                            <li><a href="dc-rules.html" class="dc-dropdown-link">📜 Rules</a></li>
+                            <li><a href="dc-faq.html" class="dc-dropdown-link">❓ FAQ</a></li>
+                            <li><a href="dc-guides.html" class="dc-dropdown-link">📚 Guides</a></li>
+                            <li><a href="dc-updates.html" class="dc-dropdown-link">📝 Updates</a></li>
+                        </ul>
+                    </div>
+                    <div class="dc-dropdown-section">
+                        <div class="dc-dropdown-section-title">Game Systems</div>
+                        <ul class="dc-dropdown-links">
+                            <li><a href="dc-building.html" class="dc-dropdown-link">🏗️ Building</a></li>
+                            <li><a href="dc-economy.html" class="dc-dropdown-link">💰 Economy</a></li>
+                            <li id="shopNavItem" style="display: none;"><a href="dc-shop.html" class="dc-dropdown-link" id="shopNavLink">🛒 Shop</a></li>
+                            <li id="linksNavItem" style="display: none;"><a href="dc-links.html" class="dc-dropdown-link" id="linksNavLink">🔗 Links</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
     </nav>
 
@@ -880,82 +900,82 @@
     <!-- Content Sections -->
     <div class="dc-content">
         <!-- Quick Links Section -->
-        <div style="text-align: center; margin-bottom: 4rem;">
+        <div style="text-align: center; margin-bottom: 6rem;">
             <h2 class="dc-section-title">Explore the DeadZone</h2>
-            <p class="dc-section-description" style="font-size: 1.125rem;">
+            <p class="dc-section-description" style="font-size: 1.125rem; margin-bottom: 3rem;">
                 Dive deep into every aspect of DeadZone Chronicles. From comprehensive rules to detailed guides, 
                 from feature breakdowns to development insights. <strong style="color: #dc2626;">Everything you need to prepare for the apocalypse.</strong>
             </p>
             
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; max-width: 1200px; margin: 3rem auto;">
-                <a href="dc-overview.html" style="display: block; padding: 2rem; background: rgba(26, 26, 26, 0.6); border: 1px solid var(--dc-border); border-radius: 16px; text-decoration: none; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.borderColor='#dc2626'; this.style.background='rgba(26, 26, 26, 0.9)'" onmouseout="this.style.transform=''; this.style.borderColor='var(--dc-border)'; this.style.background='rgba(26, 26, 26, 0.6)'">
-                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">📖</div>
-                    <div style="font-family: 'Orbitron', sans-serif; color: #dc2626; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.5rem;">Overview</div>
-                    <div style="font-family: 'Rajdhani', sans-serif; color: #a1a1aa; font-size: 0.9375rem;">Complete game overview</div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; max-width: 1300px; margin: 0 auto;">
+                <a href="dc-overview.html" style="display: block; padding: 2.5rem 2rem; background: rgba(26, 26, 26, 0.7); border: 2px solid var(--dc-border); border-radius: 20px; text-decoration: none; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); position: relative; overflow: hidden;" onmouseover="this.style.transform='translateY(-8px) scale(1.02)'; this.style.borderColor='#dc2626'; this.style.background='rgba(26, 26, 26, 0.95)'; this.style.boxShadow='0 15px 40px rgba(220, 38, 38, 0.3)'; this.querySelector('div:first-child').style.transform='scale(1.15)'" onmouseout="this.style.transform=''; this.style.borderColor='var(--dc-border)'; this.style.background='rgba(26, 26, 26, 0.7)'; this.style.boxShadow='none'; this.querySelector('div:first-child').style.transform=''">
+                    <div style="font-size: 3rem; margin-bottom: 1.25rem; display: block; transition: transform 0.3s ease;">📖</div>
+                    <div style="font-family: 'Orbitron', sans-serif; color: #dc2626; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.75rem; font-size: 1.125rem;">Overview</div>
+                    <div style="font-family: 'Rajdhani', sans-serif; color: #a1a1aa; font-size: 0.9375rem; line-height: 1.6;">Complete game overview</div>
                 </a>
                 
-                <a href="dc-rules.html" style="display: block; padding: 2rem; background: rgba(26, 26, 26, 0.6); border: 1px solid var(--dc-border); border-radius: 16px; text-decoration: none; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.borderColor='#dc2626'; this.style.background='rgba(26, 26, 26, 0.9)'" onmouseout="this.style.transform=''; this.style.borderColor='var(--dc-border)'; this.style.background='rgba(26, 26, 26, 0.6)'">
-                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">📜</div>
-                    <div style="font-family: 'Orbitron', sans-serif; color: #dc2626; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.5rem;">Base Rules</div>
-                    <div style="font-family: 'Rajdhani', sans-serif; color: #a1a1aa; font-size: 0.9375rem;">Server rules and guidelines</div>
+                <a href="dc-rules.html" style="display: block; padding: 2.5rem 2rem; background: rgba(26, 26, 26, 0.7); border: 2px solid var(--dc-border); border-radius: 20px; text-decoration: none; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); position: relative; overflow: hidden;" onmouseover="this.style.transform='translateY(-8px) scale(1.02)'; this.style.borderColor='#dc2626'; this.style.background='rgba(26, 26, 26, 0.95)'; this.style.boxShadow='0 15px 40px rgba(220, 38, 38, 0.3)'" onmouseout="this.style.transform=''; this.style.borderColor='var(--dc-border)'; this.style.background='rgba(26, 26, 26, 0.7)'; this.style.boxShadow='none'">
+                    <div style="font-size: 3rem; margin-bottom: 1.25rem; display: block; transition: transform 0.3s ease;">📜</div>
+                    <div style="font-family: 'Orbitron', sans-serif; color: #dc2626; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.75rem; font-size: 1.125rem;">Base Rules</div>
+                    <div style="font-family: 'Rajdhani', sans-serif; color: #a1a1aa; font-size: 0.9375rem; line-height: 1.6;">Server rules and guidelines</div>
                 </a>
                 
-                <a href="dc-gallery.html" style="display: block; padding: 2rem; background: rgba(26, 26, 26, 0.6); border: 1px solid var(--dc-border); border-radius: 16px; text-decoration: none; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.borderColor='#dc2626'; this.style.background='rgba(26, 26, 26, 0.9)'" onmouseout="this.style.transform=''; this.style.borderColor='var(--dc-border)'; this.style.background='rgba(26, 26, 26, 0.6)'">
-                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">📸</div>
-                    <div style="font-family: 'Orbitron', sans-serif; color: #dc2626; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.5rem;">Preview Images</div>
-                    <div style="font-family: 'Rajdhani', sans-serif; color: #a1a1aa; font-size: 0.9375rem;">Screenshots and media</div>
+                <a href="dc-gallery.html" style="display: block; padding: 2.5rem 2rem; background: rgba(26, 26, 26, 0.7); border: 2px solid var(--dc-border); border-radius: 20px; text-decoration: none; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); position: relative; overflow: hidden;" onmouseover="this.style.transform='translateY(-8px) scale(1.02)'; this.style.borderColor='#dc2626'; this.style.background='rgba(26, 26, 26, 0.95)'; this.style.boxShadow='0 15px 40px rgba(220, 38, 38, 0.3)'" onmouseout="this.style.transform=''; this.style.borderColor='var(--dc-border)'; this.style.background='rgba(26, 26, 26, 0.7)'; this.style.boxShadow='none'">
+                    <div style="font-size: 3rem; margin-bottom: 1.25rem; display: block; transition: transform 0.3s ease;">📸</div>
+                    <div style="font-family: 'Orbitron', sans-serif; color: #dc2626; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.75rem; font-size: 1.125rem;">Preview Images</div>
+                    <div style="font-family: 'Rajdhani', sans-serif; color: #a1a1aa; font-size: 0.9375rem; line-height: 1.6;">Screenshots and media</div>
                 </a>
                 
-                <a href="dc-features.html" style="display: block; padding: 2rem; background: rgba(26, 26, 26, 0.6); border: 1px solid var(--dc-border); border-radius: 16px; text-decoration: none; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.borderColor='#dc2626'; this.style.background='rgba(26, 26, 26, 0.9)'" onmouseout="this.style.transform=''; this.style.borderColor='var(--dc-border)'; this.style.background='rgba(26, 26, 26, 0.6)'">
-                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">⚙️</div>
-                    <div style="font-family: 'Orbitron', sans-serif; color: #dc2626; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.5rem;">Features</div>
-                    <div style="font-family: 'Rajdhani', sans-serif; color: #a1a1aa; font-size: 0.9375rem;">All server features</div>
+                <a href="dc-features.html" style="display: block; padding: 2.5rem 2rem; background: rgba(26, 26, 26, 0.7); border: 2px solid var(--dc-border); border-radius: 20px; text-decoration: none; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); position: relative; overflow: hidden;" onmouseover="this.style.transform='translateY(-8px) scale(1.02)'; this.style.borderColor='#dc2626'; this.style.background='rgba(26, 26, 26, 0.95)'; this.style.boxShadow='0 15px 40px rgba(220, 38, 38, 0.3)'" onmouseout="this.style.transform=''; this.style.borderColor='var(--dc-border)'; this.style.background='rgba(26, 26, 26, 0.7)'; this.style.boxShadow='none'">
+                    <div style="font-size: 3rem; margin-bottom: 1.25rem; display: block; transition: transform 0.3s ease;">⚙️</div>
+                    <div style="font-family: 'Orbitron', sans-serif; color: #dc2626; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.75rem; font-size: 1.125rem;">Features</div>
+                    <div style="font-family: 'Rajdhani', sans-serif; color: #a1a1aa; font-size: 0.9375rem; line-height: 1.6;">All server features</div>
                 </a>
                 
-                <a href="dc-team.html" style="display: block; padding: 2rem; background: rgba(26, 26, 26, 0.6); border: 1px solid var(--dc-border); border-radius: 16px; text-decoration: none; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.borderColor='#dc2626'; this.style.background='rgba(26, 26, 26, 0.9)'" onmouseout="this.style.transform=''; this.style.borderColor='var(--dc-border)'; this.style.background='rgba(26, 26, 26, 0.6)'">
-                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">👥</div>
-                    <div style="font-family: 'Orbitron', sans-serif; color: #dc2626; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.5rem;">Team</div>
-                    <div style="font-family: 'Rajdhani', sans-serif; color: #a1a1aa; font-size: 0.9375rem;">Development team</div>
+                <a href="dc-team.html" style="display: block; padding: 2.5rem 2rem; background: rgba(26, 26, 26, 0.7); border: 2px solid var(--dc-border); border-radius: 20px; text-decoration: none; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); position: relative; overflow: hidden;" onmouseover="this.style.transform='translateY(-8px) scale(1.02)'; this.style.borderColor='#dc2626'; this.style.background='rgba(26, 26, 26, 0.95)'; this.style.boxShadow='0 15px 40px rgba(220, 38, 38, 0.3)'" onmouseout="this.style.transform=''; this.style.borderColor='var(--dc-border)'; this.style.background='rgba(26, 26, 26, 0.7)'; this.style.boxShadow='none'">
+                    <div style="font-size: 3rem; margin-bottom: 1.25rem; display: block; transition: transform 0.3s ease;">👥</div>
+                    <div style="font-family: 'Orbitron', sans-serif; color: #dc2626; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.75rem; font-size: 1.125rem;">Team</div>
+                    <div style="font-family: 'Rajdhani', sans-serif; color: #a1a1aa; font-size: 0.9375rem; line-height: 1.6;">Development team</div>
                 </a>
                 
-                <a href="dc-faq.html" style="display: block; padding: 2rem; background: rgba(26, 26, 26, 0.6); border: 1px solid var(--dc-border); border-radius: 16px; text-decoration: none; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.borderColor='#dc2626'; this.style.background='rgba(26, 26, 26, 0.9)'" onmouseout="this.style.transform=''; this.style.borderColor='var(--dc-border)'; this.style.background='rgba(26, 26, 26, 0.6)'">
-                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">❓</div>
-                    <div style="font-family: 'Orbitron', sans-serif; color: #dc2626; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.5rem;">FAQ</div>
-                    <div style="font-family: 'Rajdhani', sans-serif; color: #a1a1aa; font-size: 0.9375rem;">Frequently asked questions</div>
+                <a href="dc-faq.html" style="display: block; padding: 2.5rem 2rem; background: rgba(26, 26, 26, 0.7); border: 2px solid var(--dc-border); border-radius: 20px; text-decoration: none; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); position: relative; overflow: hidden;" onmouseover="this.style.transform='translateY(-8px) scale(1.02)'; this.style.borderColor='#dc2626'; this.style.background='rgba(26, 26, 26, 0.95)'; this.style.boxShadow='0 15px 40px rgba(220, 38, 38, 0.3)'" onmouseout="this.style.transform=''; this.style.borderColor='var(--dc-border)'; this.style.background='rgba(26, 26, 26, 0.7)'; this.style.boxShadow='none'">
+                    <div style="font-size: 3rem; margin-bottom: 1.25rem; display: block; transition: transform 0.3s ease;">❓</div>
+                    <div style="font-family: 'Orbitron', sans-serif; color: #dc2626; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.75rem; font-size: 1.125rem;">FAQ</div>
+                    <div style="font-family: 'Rajdhani', sans-serif; color: #a1a1aa; font-size: 0.9375rem; line-height: 1.6;">Frequently asked questions</div>
                 </a>
                 
-                <a href="dc-guides.html" style="display: block; padding: 2rem; background: rgba(26, 26, 26, 0.6); border: 1px solid var(--dc-border); border-radius: 16px; text-decoration: none; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.borderColor='#dc2626'; this.style.background='rgba(26, 26, 26, 0.9)'" onmouseout="this.style.transform=''; this.style.borderColor='var(--dc-border)'; this.style.background='rgba(26, 26, 26, 0.6)'">
-                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">📚</div>
-                    <div style="font-family: 'Orbitron', sans-serif; color: #dc2626; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.5rem;">Guides</div>
-                    <div style="font-family: 'Rajdhani', sans-serif; color: #a1a1aa; font-size: 0.9375rem;">Player guides and tips</div>
+                <a href="dc-guides.html" style="display: block; padding: 2.5rem 2rem; background: rgba(26, 26, 26, 0.7); border: 2px solid var(--dc-border); border-radius: 20px; text-decoration: none; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); position: relative; overflow: hidden;" onmouseover="this.style.transform='translateY(-8px) scale(1.02)'; this.style.borderColor='#dc2626'; this.style.background='rgba(26, 26, 26, 0.95)'; this.style.boxShadow='0 15px 40px rgba(220, 38, 38, 0.3)'" onmouseout="this.style.transform=''; this.style.borderColor='var(--dc-border)'; this.style.background='rgba(26, 26, 26, 0.7)'; this.style.boxShadow='none'">
+                    <div style="font-size: 3rem; margin-bottom: 1.25rem; display: block; transition: transform 0.3s ease;">📚</div>
+                    <div style="font-family: 'Orbitron', sans-serif; color: #dc2626; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.75rem; font-size: 1.125rem;">Guides</div>
+                    <div style="font-family: 'Rajdhani', sans-serif; color: #a1a1aa; font-size: 0.9375rem; line-height: 1.6;">Player guides and tips</div>
                 </a>
                 
-                <a href="dc-building.html" style="display: block; padding: 2rem; background: rgba(26, 26, 26, 0.6); border: 1px solid var(--dc-border); border-radius: 16px; text-decoration: none; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.borderColor='#dc2626'; this.style.background='rgba(26, 26, 26, 0.9)'" onmouseout="this.style.transform=''; this.style.borderColor='var(--dc-border)'; this.style.background='rgba(26, 26, 26, 0.6)'">
-                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">🏗️</div>
-                    <div style="font-family: 'Orbitron', sans-serif; color: #dc2626; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.5rem;">Building</div>
-                    <div style="font-family: 'Rajdhani', sans-serif; color: #a1a1aa; font-size: 0.9375rem;">Base building guide</div>
+                <a href="dc-building.html" style="display: block; padding: 2.5rem 2rem; background: rgba(26, 26, 26, 0.7); border: 2px solid var(--dc-border); border-radius: 20px; text-decoration: none; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); position: relative; overflow: hidden;" onmouseover="this.style.transform='translateY(-8px) scale(1.02)'; this.style.borderColor='#dc2626'; this.style.background='rgba(26, 26, 26, 0.95)'; this.style.boxShadow='0 15px 40px rgba(220, 38, 38, 0.3)'" onmouseout="this.style.transform=''; this.style.borderColor='var(--dc-border)'; this.style.background='rgba(26, 26, 26, 0.7)'; this.style.boxShadow='none'">
+                    <div style="font-size: 3rem; margin-bottom: 1.25rem; display: block; transition: transform 0.3s ease;">🏗️</div>
+                    <div style="font-family: 'Orbitron', sans-serif; color: #dc2626; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.75rem; font-size: 1.125rem;">Building</div>
+                    <div style="font-family: 'Rajdhani', sans-serif; color: #a1a1aa; font-size: 0.9375rem; line-height: 1.6;">Base building guide</div>
                 </a>
                 
-                <a href="dc-economy.html" style="display: block; padding: 2rem; background: rgba(26, 26, 26, 0.6); border: 1px solid var(--dc-border); border-radius: 16px; text-decoration: none; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.borderColor='#dc2626'; this.style.background='rgba(26, 26, 26, 0.9)'" onmouseout="this.style.transform=''; this.style.borderColor='var(--dc-border)'; this.style.background='rgba(26, 26, 26, 0.6)'">
-                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">💰</div>
-                    <div style="font-family: 'Orbitron', sans-serif; color: #dc2626; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.5rem;">Economy</div>
-                    <div style="font-family: 'Rajdhani', sans-serif; color: #a1a1aa; font-size: 0.9375rem;">Trading and economy</div>
+                <a href="dc-economy.html" style="display: block; padding: 2.5rem 2rem; background: rgba(26, 26, 26, 0.7); border: 2px solid var(--dc-border); border-radius: 20px; text-decoration: none; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); position: relative; overflow: hidden;" onmouseover="this.style.transform='translateY(-8px) scale(1.02)'; this.style.borderColor='#dc2626'; this.style.background='rgba(26, 26, 26, 0.95)'; this.style.boxShadow='0 15px 40px rgba(220, 38, 38, 0.3)'" onmouseout="this.style.transform=''; this.style.borderColor='var(--dc-border)'; this.style.background='rgba(26, 26, 26, 0.7)'; this.style.boxShadow='none'">
+                    <div style="font-size: 3rem; margin-bottom: 1.25rem; display: block; transition: transform 0.3s ease;">💰</div>
+                    <div style="font-family: 'Orbitron', sans-serif; color: #dc2626; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.75rem; font-size: 1.125rem;">Economy</div>
+                    <div style="font-family: 'Rajdhani', sans-serif; color: #a1a1aa; font-size: 0.9375rem; line-height: 1.6;">Trading and economy</div>
                 </a>
                 
-                <a href="dc-updates.html" style="display: block; padding: 2rem; background: rgba(26, 26, 26, 0.6); border: 1px solid var(--dc-border); border-radius: 16px; text-decoration: none; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.borderColor='#dc2626'; this.style.background='rgba(26, 26, 26, 0.9)'" onmouseout="this.style.transform=''; this.style.borderColor='var(--dc-border)'; this.style.background='rgba(26, 26, 26, 0.6)'">
-                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">📝</div>
-                    <div style="font-family: 'Orbitron', sans-serif; color: #dc2626; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.5rem;">Updates</div>
-                    <div style="font-family: 'Rajdhani', sans-serif; color: #a1a1aa; font-size: 0.9375rem;">Changelog and updates</div>
+                <a href="dc-updates.html" style="display: block; padding: 2.5rem 2rem; background: rgba(26, 26, 26, 0.7); border: 2px solid var(--dc-border); border-radius: 20px; text-decoration: none; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); position: relative; overflow: hidden;" onmouseover="this.style.transform='translateY(-8px) scale(1.02)'; this.style.borderColor='#dc2626'; this.style.background='rgba(26, 26, 26, 0.95)'; this.style.boxShadow='0 15px 40px rgba(220, 38, 38, 0.3)'" onmouseout="this.style.transform=''; this.style.borderColor='var(--dc-border)'; this.style.background='rgba(26, 26, 26, 0.7)'; this.style.boxShadow='none'">
+                    <div style="font-size: 3rem; margin-bottom: 1.25rem; display: block; transition: transform 0.3s ease;">📝</div>
+                    <div style="font-family: 'Orbitron', sans-serif; color: #dc2626; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.75rem; font-size: 1.125rem;">Updates</div>
+                    <div style="font-family: 'Rajdhani', sans-serif; color: #a1a1aa; font-size: 0.9375rem; line-height: 1.6;">Changelog and updates</div>
                 </a>
-                <a href="dc-shop.html" id="shopQuickLink" style="display: block; padding: 2rem; background: rgba(26, 26, 26, 0.6); border: 1px solid var(--dc-border); border-radius: 16px; text-decoration: none; transition: all 0.3s ease; opacity: 0.5; filter: grayscale(100%);" onmouseover="if(this.style.opacity !== '0.5') { this.style.transform='translateY(-5px)'; this.style.borderColor='#dc2626'; this.style.background='rgba(26, 26, 26, 0.9)'; }" onmouseout="if(this.style.opacity !== '0.5') { this.style.transform=''; this.style.borderColor='var(--dc-border)'; this.style.background='rgba(26, 26, 26, 0.6)'; }">
-                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">🛒</div>
-                    <div style="font-family: 'Orbitron', sans-serif; color: #6b7280; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.5rem; text-decoration: line-through;">Server Shop</div>
-                    <div style="font-family: 'Rajdhani', sans-serif; color: #6b7280; font-size: 0.9375rem;">Coming Soon</div>
+                <a href="dc-shop.html" id="shopQuickLink" style="display: block; padding: 2.5rem 2rem; background: rgba(26, 26, 26, 0.7); border: 2px solid var(--dc-border); border-radius: 20px; text-decoration: none; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); position: relative; overflow: hidden; opacity: 0.5; filter: grayscale(100%);" onmouseover="if(this.style.opacity !== '0.5') { this.style.transform='translateY(-8px) scale(1.02)'; this.style.borderColor='#dc2626'; this.style.background='rgba(26, 26, 26, 0.95)'; this.style.boxShadow='0 15px 40px rgba(220, 38, 38, 0.3)'; }" onmouseout="if(this.style.opacity !== '0.5') { this.style.transform=''; this.style.borderColor='var(--dc-border)'; this.style.background='rgba(26, 26, 26, 0.7)'; this.style.boxShadow='none'; }">
+                    <div style="font-size: 3rem; margin-bottom: 1.25rem; display: block; transition: transform 0.3s ease;">🛒</div>
+                    <div style="font-family: 'Orbitron', sans-serif; color: #6b7280; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.75rem; font-size: 1.125rem; text-decoration: line-through;">Server Shop</div>
+                    <div style="font-family: 'Rajdhani', sans-serif; color: #6b7280; font-size: 0.9375rem; line-height: 1.6;">Coming Soon</div>
                 </a>
-                <a href="dc-links.html" id="linksQuickLink" style="display: none; padding: 2rem; background: rgba(26, 26, 26, 0.6); border: 1px solid var(--dc-border); border-radius: 16px; text-decoration: none; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.borderColor='#dc2626'; this.style.background='rgba(26, 26, 26, 0.9)'" onmouseout="this.style.transform=''; this.style.borderColor='var(--dc-border)'; this.style.background='rgba(26, 26, 26, 0.6)'">
-                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">🔗</div>
-                    <div style="font-family: 'Orbitron', sans-serif; color: #dc2626; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.5rem;">Links</div>
-                    <div style="font-family: 'Rajdhani', sans-serif; color: #a1a1aa; font-size: 0.9375rem;">All resources & links</div>
+                <a href="dc-links.html" id="linksQuickLink" style="display: none; padding: 2.5rem 2rem; background: rgba(26, 26, 26, 0.7); border: 2px solid var(--dc-border); border-radius: 20px; text-decoration: none; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); position: relative; overflow: hidden;" onmouseover="this.style.transform='translateY(-8px) scale(1.02)'; this.style.borderColor='#dc2626'; this.style.background='rgba(26, 26, 26, 0.95)'; this.style.boxShadow='0 15px 40px rgba(220, 38, 38, 0.3)'" onmouseout="this.style.transform=''; this.style.borderColor='var(--dc-border)'; this.style.background='rgba(26, 26, 26, 0.7)'; this.style.boxShadow='none'">
+                    <div style="font-size: 3rem; margin-bottom: 1.25rem; display: block; transition: transform 0.3s ease;">🔗</div>
+                    <div style="font-family: 'Orbitron', sans-serif; color: #dc2626; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.75rem; font-size: 1.125rem;">Links</div>
+                    <div style="font-family: 'Rajdhani', sans-serif; color: #a1a1aa; font-size: 0.9375rem; line-height: 1.6;">All resources & links</div>
                 </a>
             </div>
         </div>
@@ -1285,7 +1305,65 @@
     </div>
 
     <script src="dc-config.js"></script>
+    <script src="dc-nav.js"></script>
     <script>
+        // Dropdown Menu Toggle
+        (function() {
+            const dropdownToggle = document.getElementById('navDropdownToggle');
+            const dropdownMenu = document.getElementById('navDropdownMenu');
+            
+            if (dropdownToggle && dropdownMenu) {
+                // Toggle dropdown
+                dropdownToggle.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const isActive = dropdownMenu.classList.contains('active');
+                    
+                    if (isActive) {
+                        dropdownMenu.classList.remove('active');
+                        dropdownToggle.classList.remove('active');
+                    } else {
+                        dropdownMenu.classList.add('active');
+                        dropdownToggle.classList.add('active');
+                    }
+                });
+
+                // Close dropdown when clicking outside
+                document.addEventListener('click', function(e) {
+                    if (!dropdownToggle.contains(e.target) && !dropdownMenu.contains(e.target)) {
+                        dropdownMenu.classList.remove('active');
+                        dropdownToggle.classList.remove('active');
+                    }
+                });
+
+                // Close dropdown when clicking a link
+                const dropdownLinks = dropdownMenu.querySelectorAll('.dc-dropdown-link');
+                dropdownLinks.forEach(link => {
+                    link.addEventListener('click', function() {
+                        dropdownMenu.classList.remove('active');
+                        dropdownToggle.classList.remove('active');
+                    });
+                });
+
+                // Close dropdown on Escape key
+                document.addEventListener('keydown', function(e) {
+                    if (e.key === 'Escape' && dropdownMenu.classList.contains('active')) {
+                        dropdownMenu.classList.remove('active');
+                        dropdownToggle.classList.remove('active');
+                    }
+                });
+            }
+
+            // Set active link based on current page
+            const currentPage = window.location.pathname.split('/').pop() || 'dc.html';
+            const allLinks = document.querySelectorAll('.dc-dropdown-link');
+            allLinks.forEach(link => {
+                const linkHref = link.getAttribute('href');
+                if (linkHref === currentPage || (currentPage === 'dc.html' && linkHref === 'dc-overview.html')) {
+                    link.classList.add('active');
+                }
+            });
+        })();
+
         // Countdown Timer (TBD for now)
         function updateCountdown() {
             // Future implementation when release date is set
@@ -1300,8 +1378,7 @@
                 const shopQuickLink = document.getElementById('shopQuickLink');
                 if (shopNavItem) shopNavItem.style.display = 'block';
                 if (shopNavLink) {
-                    shopNavLink.style.opacity = '1';
-                    shopNavLink.style.cursor = 'pointer';
+                    shopNavLink.classList.remove('disabled');
                 }
                 if (shopQuickLink) {
                     shopQuickLink.style.opacity = '1';
@@ -1314,6 +1391,11 @@
                         title.style.textDecoration = 'none';
                     }
                     if (subtitle) subtitle.style.color = '#a1a1aa';
+                }
+            } else {
+                const shopNavLink = document.getElementById('shopNavLink');
+                if (shopNavLink) {
+                    shopNavLink.classList.add('disabled');
                 }
             }
 
