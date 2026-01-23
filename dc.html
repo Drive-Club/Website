@@ -51,14 +51,13 @@
 
         /* Navigation */
         .dc-nav {
-            background: rgba(0, 0, 0, 0.95);
+            background: rgba(0, 0, 0, 0.98);
             backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--dc-border);
-            padding: 1.25rem 0;
+            border-bottom: 2px solid var(--dc-border);
+            padding: 1.5rem 0;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
         }
 
         .dc-nav-container {
@@ -68,6 +67,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 2rem;
         }
 
         .dc-back-link {
@@ -82,40 +82,163 @@
             transition: all 0.3s ease;
             font-size: 0.875rem;
             text-transform: uppercase;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            border: 1px solid transparent;
         }
 
         .dc-back-link:hover {
             color: #ef4444;
             transform: translateX(-5px);
+            border-color: var(--dc-border);
+            background: rgba(220, 38, 38, 0.1);
         }
 
-        .dc-nav-links {
-            display: flex;
-            gap: 0.5rem;
-            list-style: none;
-            flex-wrap: wrap;
+        /* Dropdown Menu */
+        .dc-dropdown {
+            position: relative;
+            display: inline-block;
         }
 
-        .dc-nav-link {
+        .dc-dropdown-toggle {
             font-family: 'Orbitron', sans-serif;
-            color: #a1a1aa;
-            text-decoration: none;
-            font-weight: 600;
-            letter-spacing: 1.5px;
-            padding: 0.75rem 1.5rem;
-            border-radius: 8px;
+            color: #ffffff;
+            background: rgba(220, 38, 38, 0.15);
+            border: 2px solid var(--dc-border);
+            padding: 0.875rem 2rem;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 0.875rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
             transition: all 0.3s ease;
             position: relative;
-            font-size: 0.875rem;
-            text-transform: uppercase;
-            border: 1px solid transparent;
+            min-width: 200px;
+            justify-content: space-between;
         }
 
-        .dc-nav-link:hover,
-        .dc-nav-link.active {
+        .dc-dropdown-toggle:hover {
+            background: rgba(220, 38, 38, 0.25);
+            border-color: #dc2626;
+            transform: translateY(-2px);
+        }
+
+        .dc-dropdown-toggle.active {
+            background: rgba(220, 38, 38, 0.3);
+            border-color: #dc2626;
+        }
+
+        .dc-dropdown-toggle::after {
+            content: '';
+            width: 0;
+            height: 0;
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-top: 8px solid #dc2626;
+            transition: transform 0.3s ease;
+        }
+
+        .dc-dropdown-toggle.active::after {
+            transform: rotate(180deg);
+        }
+
+        .dc-dropdown-menu {
+            position: absolute;
+            top: calc(100% + 0.5rem);
+            right: 0;
+            background: rgba(10, 10, 10, 0.98);
+            backdrop-filter: blur(20px);
+            border: 2px solid var(--dc-border);
+            border-radius: 16px;
+            min-width: 280px;
+            max-width: 320px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1001;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+        }
+
+        .dc-dropdown-menu.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dc-dropdown-menu::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #dc2626, #991b1b, #dc2626);
+        }
+
+        .dc-dropdown-section {
+            padding: 1rem 0;
+        }
+
+        .dc-dropdown-section-title {
+            font-family: 'Orbitron', sans-serif;
+            color: #dc2626;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 0.5rem 1.5rem;
+            margin-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(220, 38, 38, 0.2);
+        }
+
+        .dc-dropdown-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .dc-dropdown-link {
+            display: block;
+            font-family: 'Rajdhani', sans-serif;
+            color: #a1a1aa;
+            text-decoration: none;
+            padding: 1rem 1.5rem;
+            transition: all 0.2s ease;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            font-size: 0.9375rem;
+            border-left: 3px solid transparent;
+            position: relative;
+        }
+
+        .dc-dropdown-link:hover {
+            color: #ffffff;
+            background: rgba(220, 38, 38, 0.15);
+            border-left-color: #dc2626;
+            padding-left: 1.75rem;
+        }
+
+        .dc-dropdown-link.active {
             color: #dc2626;
             background: rgba(220, 38, 38, 0.1);
-            border-color: var(--dc-border);
+            border-left-color: #dc2626;
+            font-weight: 600;
+        }
+
+        .dc-dropdown-link.disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
+        .dc-dropdown-link.disabled:hover {
+            padding-left: 1.5rem;
         }
 
         /* Hero Section */
@@ -628,17 +751,27 @@
         /* Responsive */
         @media (max-width: 968px) {
             .dc-nav-container {
-                flex-direction: column;
+                flex-direction: row;
                 gap: 1rem;
+                padding: 0 1.5rem;
             }
 
-            .dc-nav-links {
-                justify-content: center;
-            }
-
-            .dc-nav-link {
-                padding: 0.5rem 1rem;
+            .dc-back-link {
                 font-size: 0.75rem;
+                padding: 0.5rem 0.75rem;
+            }
+
+            .dc-dropdown-toggle {
+                min-width: 160px;
+                padding: 0.75rem 1.5rem;
+                font-size: 0.75rem;
+            }
+
+            .dc-dropdown-menu {
+                right: 0;
+                left: auto;
+                min-width: 240px;
+                max-width: 280px;
             }
 
             .dc-content {
@@ -835,8 +968,8 @@
                 complete reimagining of zombie survival gameplay, built from the ground up by developers who understand what makes survival games 
                 legendary. Every system is custom-coded. Every mechanic is hand-crafted. Every interaction is optimized. This is what happens when 
                 a full-stack developer doesn't just make a server—they architect an experience. Engage in intense Rust-like PvP combat, raid enemy 
-                fortresses, craft legendary weapons, loot the wasteland, face hordes of zombies, explore dangerous dungeons, and discover rare 
-                mystery boxes. <strong style="color: #dc2626;">Only the strongest will survive. Will you be among them?</strong>
+                fortresses, craft legendary weapons, loot the wasteland, face hordes of zombies, and discover rare mystery boxes. 
+                <strong style="color: #dc2626;">Only the strongest will survive. Will you be among them?</strong>
             </p>
 
             <!-- Core Pillars -->
@@ -895,11 +1028,6 @@
                     <div class="dc-feature-desc">Face hordes of zombies with different types and behaviors</div>
                 </div>
                 <div class="dc-feature">
-                    <span class="dc-feature-icon">🏰</span>
-                    <div class="dc-feature-title">Dungeons</div>
-                    <div class="dc-feature-desc">Explore dangerous dungeons filled with zombies and rare loot</div>
-                </div>
-                <div class="dc-feature">
                     <span class="dc-feature-icon">📦</span>
                     <div class="dc-feature-title">Mystery Boxes</div>
                     <div class="dc-feature-desc">Open mystery boxes for rare items, weapons, and exclusive rewards</div>
@@ -909,26 +1037,28 @@
 
         <!-- Gallery Tab -->
         <div id="gallery" class="dc-tab-content">
-            <h2 class="dc-section-title">Gallery</h2>
-            <p class="dc-section-description">Screenshots and media from DeadZone Chronicles</p>
-            <div class="dc-grid">
+            <h2 class="dc-section-title">Preview Gallery</h2>
+            <p class="dc-section-description">Basic previews of key gameplay systems and features</p>
+            <div class="dc-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); max-width: 1000px; margin: 0 auto;">
                 <div class="dc-gallery-item">
-                    <div class="dc-gallery-placeholder">📸</div>
+                    <div class="dc-gallery-placeholder">🔨</div>
+                    <div style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0, 0, 0, 0.8); padding: 1rem; text-align: center; font-family: 'Rajdhani', sans-serif; color: #dc2626; font-weight: 600;">Crafting System</div>
                 </div>
                 <div class="dc-gallery-item">
-                    <div class="dc-gallery-placeholder">📸</div>
+                    <div class="dc-gallery-placeholder">📋</div>
+                    <div style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0, 0, 0, 0.8); padding: 1rem; text-align: center; font-family: 'Rajdhani', sans-serif; color: #dc2626; font-weight: 600;">Blueprints</div>
                 </div>
                 <div class="dc-gallery-item">
-                    <div class="dc-gallery-placeholder">📸</div>
+                    <div class="dc-gallery-placeholder">📦</div>
+                    <div style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0, 0, 0, 0.8); padding: 1rem; text-align: center; font-family: 'Rajdhani', sans-serif; color: #dc2626; font-weight: 600;">Stashes</div>
                 </div>
                 <div class="dc-gallery-item">
-                    <div class="dc-gallery-placeholder">📸</div>
+                    <div class="dc-gallery-placeholder">🏗️</div>
+                    <div style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0, 0, 0, 0.8); padding: 1rem; text-align: center; font-family: 'Rajdhani', sans-serif; color: #dc2626; font-weight: 600;">Building</div>
                 </div>
                 <div class="dc-gallery-item">
-                    <div class="dc-gallery-placeholder">📸</div>
-                </div>
-                <div class="dc-gallery-item">
-                    <div class="dc-gallery-placeholder">📸</div>
+                    <div class="dc-gallery-placeholder">⚔️</div>
+                    <div style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0, 0, 0, 0.8); padding: 1rem; text-align: center; font-family: 'Rajdhani', sans-serif; color: #dc2626; font-weight: 600;">Combat</div>
                 </div>
             </div>
         </div>
@@ -955,7 +1085,7 @@
                     <div class="dc-team-name">Nikolaus Alan Aurich</div>
                     <div class="dc-team-role">Backend Development Lead • Admin • Co-Founder</div>
                     <div style="font-family: 'Rajdhani', sans-serif; color: #a1a1aa; font-size: 0.875rem; margin-bottom: 0.5rem; font-weight: 500;">
-                        <strong style="color: #dc2626;">Alias:</strong> Nikk
+                        <strong style="color: #dc2626;">Alias:</strong> SmokeOpps
                     </div>
                     <div class="dc-team-bio">
                         The backbone of DeadZone Chronicles. Backend development powerhouse ensuring systems run flawlessly, 
@@ -1082,16 +1212,6 @@
                         </ul>
                     </div>
                     <div class="dc-card">
-                        <h3 style="font-family: 'Orbitron', sans-serif; color: #dc2626; font-size: 1.5rem; margin-bottom: 1rem; letter-spacing: 2px; text-transform: uppercase;">Dungeons</h3>
-                        <ul style="font-family: 'Rajdhani', sans-serif; color: #a1a1aa; line-height: 2.2; text-align: left; font-weight: 500;">
-                            <li>Multiple dungeon locations</li>
-                            <li>Boss zombies and challenges</li>
-                            <li>Rare loot rewards</li>
-                            <li>Dungeon respawn timers</li>
-                            <li>Progressive difficulty</li>
-                        </ul>
-                    </div>
-                    <div class="dc-card">
                         <h3 style="font-family: 'Orbitron', sans-serif; color: #dc2626; font-size: 1.5rem; margin-bottom: 1rem; letter-spacing: 2px; text-transform: uppercase;">Mystery Boxes</h3>
                         <ul style="font-family: 'Rajdhani', sans-serif; color: #a1a1aa; line-height: 2.2; text-align: left; font-weight: 500;">
                             <li>Multiple mystery box types</li>
@@ -1154,7 +1274,7 @@
                             <li>NPC traders and quests</li>
                             <li>Clan system improvements</li>
                             <li>Leaderboards and statistics</li>
-                            <li>More dungeon types</li>
+                            <li>Dungeon system with boss encounters</li>
                             <li>Additional mystery box variants</li>
                             <li>Seasonal content updates</li>
                         </ul>
