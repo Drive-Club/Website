@@ -36,46 +36,12 @@ window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
     
     if (currentScroll > 100) {
-        navbar.style.background = 'rgba(10, 10, 15, 0.95)';
+        navbar.style.background = 'rgba(0, 0, 0, 0.95)';
     } else {
-        navbar.style.background = 'rgba(10, 10, 15, 0.8)';
+        navbar.style.background = 'rgba(0, 0, 0, 0.8)';
     }
     
     lastScroll = currentScroll;
-});
-
-// Animate stats counter
-const animateCounter = (element, target, duration = 2000) => {
-    let start = 0;
-    const increment = target / (duration / 16);
-    
-    const updateCounter = () => {
-        start += increment;
-        if (start < target) {
-            element.textContent = Math.floor(start);
-            requestAnimationFrame(updateCounter);
-        } else {
-            element.textContent = target;
-        }
-    };
-    
-    updateCounter();
-};
-
-// Intersection Observer for stats
-const statsObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const statNumber = entry.target.querySelector('.stat-number');
-            const target = parseInt(statNumber.getAttribute('data-target'));
-            animateCounter(statNumber, target);
-            statsObserver.unobserve(entry.target);
-        }
-    });
-}, { threshold: 0.5 });
-
-document.querySelectorAll('.stat-item').forEach(stat => {
-    statsObserver.observe(stat);
 });
 
 // Intersection Observer for fade-in animations
@@ -104,34 +70,20 @@ document.querySelectorAll('.project-card').forEach((card, index) => {
     fadeObserver.observe(card);
 });
 
-// Form submission handler
-const contactForm = document.getElementById('contactForm');
+// Add fade-in animation to team card
+document.querySelectorAll('.team-card').forEach((card) => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(30px)';
+    card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    fadeObserver.observe(card);
+});
 
-contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    // Get form data
-    const formData = new FormData(contactForm);
-    const data = Object.fromEntries(formData);
-    
-    // Here you would typically send the data to a server
-    // For now, we'll just show an alert
-    console.log('Form submitted:', data);
-    
-    // Show success message
-    const submitButton = contactForm.querySelector('button[type="submit"]');
-    const originalText = submitButton.textContent;
-    submitButton.textContent = 'Message Sent!';
-    submitButton.style.background = 'linear-gradient(135deg, #10b981 0%, #059669 100%)';
-    
-    // Reset form
-    contactForm.reset();
-    
-    // Reset button after 3 seconds
-    setTimeout(() => {
-        submitButton.textContent = originalText;
-        submitButton.style.background = '';
-    }, 3000);
+// Add fade-in animation to contact cards
+document.querySelectorAll('.contact-card').forEach((card, index) => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(30px)';
+    card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+    fadeObserver.observe(card);
 });
 
 // Parallax effect for hero orbs
