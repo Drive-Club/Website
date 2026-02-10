@@ -2,11 +2,11 @@
 window.addEventListener('load', () => {
     const loader = document.getElementById('loader');
     const body = document.body;
-    
+
     setTimeout(() => {
         loader.classList.add('hidden');
         body.classList.add('loaded');
-        
+
         // Remove loader from DOM after animation
         setTimeout(() => {
             loader.style.display = 'none';
@@ -54,13 +54,13 @@ const navbar = document.querySelector('.navbar');
 
 window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
-    
+
     if (currentScroll > 100) {
         navbar.style.background = 'rgba(0, 0, 0, 0.95)';
     } else {
         navbar.style.background = 'rgba(0, 0, 0, 0.8)';
     }
-    
+
     lastScroll = currentScroll;
 });
 
@@ -119,7 +119,7 @@ sectionHeaders.forEach((header, index) => {
 window.addEventListener('scroll', () => {
     const scrolled = window.pageYOffset;
     const orbs = document.querySelectorAll('.gradient-orb');
-    
+
     orbs.forEach((orb, index) => {
         const speed = (index + 1) * 0.5;
         orb.style.transform = `translate(${scrolled * speed * 0.1}px, ${scrolled * speed * 0.1}px)`;
@@ -131,13 +131,13 @@ const sections = document.querySelectorAll('section[id]');
 
 window.addEventListener('scroll', () => {
     const scrollY = window.pageYOffset + 100;
-    
+
     sections.forEach(section => {
         const sectionHeight = section.offsetHeight;
         const sectionTop = section.offsetTop;
         const sectionId = section.getAttribute('id');
         const navLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
-        
+
         if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
             document.querySelectorAll('.nav-link').forEach(link => {
                 link.style.color = 'var(--text-secondary)';
@@ -154,11 +154,11 @@ document.querySelector('.nav-link[href="#home"]').style.color = 'var(--text-prim
 
 // Add cursor effect for interactive elements
 document.querySelectorAll('.btn, .service-card, .project-card, .nav-link').forEach(element => {
-    element.addEventListener('mouseenter', function() {
+    element.addEventListener('mouseenter', function () {
         document.body.style.cursor = 'pointer';
     });
-    
-    element.addEventListener('mouseleave', function() {
+
+    element.addEventListener('mouseleave', function () {
         document.body.style.cursor = 'default';
     });
 });
@@ -181,4 +181,78 @@ const debouncedScroll = debounce(() => {
     // Scroll-based animations here
 }, 10);
 
-window.addEventListener('scroll', debouncedScroll);
+
+// Matrix Rain Effect
+const canvas = document.getElementById('matrix-canvas');
+const ctx = canvas.getContext('2d');
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const katakana = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン';
+const latin = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+const nums = '01';
+const alphabet = katakana + latin + nums;
+
+const fontSize = 16;
+const columns = canvas.width / fontSize;
+
+const rainDrops = [];
+
+for (let x = 0; x < columns; x++) {
+    rainDrops[x] = 1;
+}
+
+const draw = () => {
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    ctx.fillStyle = '#cc0000'; // Primary Light Red
+    ctx.font = fontSize + 'px monospace';
+
+    for (let i = 0; i < rainDrops.length; i++) {
+        const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
+
+        // Randomly make some characters brighter/white for "glitch" effect
+        if (Math.random() > 0.98) {
+            ctx.fillStyle = '#ffffff';
+        } else {
+            ctx.fillStyle = '#990000'; // Primary Red
+        }
+
+        ctx.fillText(text, i * fontSize, rainDrops[i] * fontSize);
+
+        if (rainDrops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+            rainDrops[i] = 0;
+        }
+        rainDrops[i]++;
+    }
+};
+
+window.addEventListener('resize', () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+});
+
+
+// Custom Cursor Logic
+const cursorDot = document.querySelector('.cursor-dot');
+const cursorOutline = document.querySelector('.cursor-outline');
+
+window.addEventListener('mousemove', (e) => {
+    const posX = e.clientX;
+    const posY = e.clientY;
+
+    // Dot follows cursor exactly
+    cursorDot.style.left = `${posX}px`;
+    cursorDot.style.top = `${posY}px`;
+
+    // Outline follows with slight delay
+    cursorOutline.animate({
+        left: `${posX}px`,
+        top: `${posY}px`
+    }, { duration: 500, fill: "forwards" });
+});
+
+// Start Matrix Rain
+setInterval(draw, 30);
