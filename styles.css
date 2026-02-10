@@ -1926,8 +1926,8 @@ body:hover .cursor-outline {
 
 .glitch::after {
     left: -2px;
-    text-shadow: -1px 0 #00ccff;
-    /* Cyber blue contrast */
+    text-shadow: -1px 0 #4a0404;
+    /* Deep dark red contrast */
     clip: rect(44px, 450px, 56px, 0);
     animation: glitch-anim-2 5s infinite linear alternate-reverse;
 }
